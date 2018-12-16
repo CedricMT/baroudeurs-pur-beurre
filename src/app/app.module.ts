@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FlowComponent } from './flow/flow.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { FlowComponent } from './flow/flow.component';
     HeaderComponent,
     HomeComponent,
     FlowComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
