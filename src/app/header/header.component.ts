@@ -9,7 +9,8 @@ export class HeaderComponent implements OnInit {
 
   navLinks = [
     { label: 'Home', routerLink: 'home' },
-    { label: 'Flow', routerLink: 'flow' }
+    { label: 'Flow', routerLink: 'flow' },
+    { label: 'Map', routerLink: 'map' }
   ]
   constructor() { }
 
