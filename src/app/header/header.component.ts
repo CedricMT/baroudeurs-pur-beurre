@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   navLinks = [
-    { label: 'Home', routerLink: 'home' },
-    { label: 'Flow', routerLink: 'flow' },
-    { label: 'Map', routerLink: 'map' }
+    { label: 'Accueil', routerLink: 'home' },
+    { label: 'Nos Articles', routerLink: 'flow' },
+    { label: 'Le Périple', routerLink: 'map' }
   ]
   constructor() { }
 
