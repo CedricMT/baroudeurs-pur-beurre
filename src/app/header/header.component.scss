@@ -1,10 +1,14 @@
-section.navbar {
+nav.navbar {
     background: linear-gradient(135deg,#0143a3,#0273d4);
 }
 
+.navbar-brand-text {
+    color: rgba(255, 255, 255, 0.75);
+}
+
 .navbar-logo {
-    height: 36px;
-    width: 36px;
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 .invert { filter: invert(100%); }
