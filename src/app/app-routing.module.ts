@@ -3,13 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { FlowComponent } from './flow/flow.component';
-import { MapComponent } from './map/map.component';
+import { JourneyComponent } from './journey/journey.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'flow', component: FlowComponent },
-  { path: 'map', component: MapComponent }
+  { path: 'journey', component: JourneyComponent }
 ];
 
 @NgModule({

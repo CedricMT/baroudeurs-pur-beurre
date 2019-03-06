@@ -10,8 +10,9 @@ export class HeaderComponent implements OnInit {
   navLinks = [
     { label: 'Accueil', routerLink: 'home' },
     { label: 'Nos Articles', routerLink: 'flow' },
-    { label: 'Le Périple', routerLink: 'map' }
-  ]
+    { label: 'Le Périple', routerLink: 'journey' }
+  ];
+
   constructor() { }
 
   ngOnInit() {

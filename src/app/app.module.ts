@@ -10,6 +10,8 @@ import { FlowComponent } from './flow/flow.component';
 import { FooterComponent } from './footer/footer.component';
 import { ArticleComponent } from './article/article.component';
 import { MapComponent } from './map/map.component';
+import { FlyingMapComponent } from './flying-map/flying-map.component';
+import { JourneyComponent } from './journey/journey.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MapComponent } from './map/map.component';
     FlowComponent,
     FooterComponent,
     ArticleComponent,
-    MapComponent
+    MapComponent,
+    FlyingMapComponent,
+    JourneyComponent
   ],
   imports: [
     BrowserModule,
