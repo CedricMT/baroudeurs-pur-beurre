@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HeaderComponent } from './header/header.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FlowComponent } from './flow/flow.component';
 import { FooterComponent } from './footer/footer.component';
@@ -16,7 +16,7 @@ import { JourneyComponent } from './journey/journey.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    NavbarComponent,
     HomeComponent,
     FlowComponent,
     FooterComponent,
