@@ -27,13 +27,8 @@ export class FlyingMapComponent {
       // Use Miller projection
       map.projection = new am4maps.projections.Miller();
 
-
       // Set default position and zoom
-      // map.homeZoomLevel = 2.5;
-      // map.homeGeoPoint = {
-      //   latitude: 38,
-      //   longitude: -60
-      // };
+      map.maxZoomLevel = 1;
 
       // Load polygon series
       const polygonSeries = new am4maps.MapPolygonSeries();
@@ -47,6 +42,23 @@ export class FlyingMapComponent {
       const polygonTemplate = polygonSeries.mapPolygons.template;
       polygonTemplate.tooltipText = '{name}';
       polygonTemplate.fill = am4core.color('#6c757d');
+
+      // Disable scrolling on map container
+      map.chartContainer.wheelable = false;
+
+      // Disable drag
+      map.seriesContainer.draggable = false;
+      map.seriesContainer.resizable = false;
+
+      // Retain the auto-zoom functionality when users click on a country
+      polygonTemplate.events.on('hit', function (event) {
+        if (map.zoomLevel === 1) {
+          map.maxZoomLevel = 10;
+          map.zoomToMapObject(event.target);
+        } else {
+          map.goHome();
+        }
+      });
 
       // Create hover state and set alternative fill color
       const hs = polygonTemplate.states.create('hover');
