@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlowComponent implements OnInit {
 
-  articles = [
+  title = 'Nos Articles';
+
+    articles = [
     {
       title: 'Premier Article',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sagittis erat eu lacus maximus, sit amet'
@@ -45,6 +47,8 @@ export class FlowComponent implements OnInit {
       images: [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
     }
   ];
+
+  articlesList = this.articles.map(article => article.title);
 
   constructor() { }
 

@@ -12,6 +12,7 @@ import { ArticleComponent } from './article/article.component';
 import { MapComponent } from './map/map.component';
 import { FlyingMapComponent } from './flying-map/flying-map.component';
 import { JourneyComponent } from './journey/journey.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { JourneyComponent } from './journey/journey.component';
     ArticleComponent,
     MapComponent,
     FlyingMapComponent,
-    JourneyComponent
+    JourneyComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,

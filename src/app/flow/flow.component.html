@@ -1,13 +1,30 @@
-<header class="bg-light pt-4 pb-md-5 px-4 px-lg-5 d-flex d-md-block align-items-center title">
-  <h1 class="mb-4 mr-auto mr-md-none">Nos Articles</h1>
-</header>
+<div class="container-fluid">
+  <div class="row flex-xl-nowrap">
 
-<div class="container">
-  <div class="row">
-    <section class="col-xl-9 mx-auto py-5 px-2 px-md-4 px-lg-5 d-flex flex-column">
-      <app-article *ngFor="let article of articles; index as i" [title]="article.title" [number]="i"
-        [text]="article.text" [images]="article.images">
-      </app-article>
-    </section>
+    <div class="col-12 col-lg-2 border-right">
+      <app-side-nav class="d-lg-block my-3 collapse sidebar" [articles]="articlesList">
+        <nav class="toc py-3">
+          <div class="toc-item">
+            <a class="toc-link" routerlink="/" href="#/"></a>
+          </div>
+        </nav>
+      </app-side-nav>
+    </div>
+
+    <div class="col-12 col-lg-10">
+      <header class="bg-light pt-4 pb-md-5 px-4 px-lg-5 d-flex d-md-block align-items-center title">
+        <div class="container">
+          <h1 class="mb-4 mr-auto mr-md-none">{{ title }}</h1>
+        </div>
+      </header>
+      <div class="row">
+        <section class="col-xl-9 mx-auto py-5 px-2 px-md-4 px-lg-5 d-flex flex-column">
+          <app-article *ngFor="let article of articles; index as i" [title]="article.title" [number]="i" [text]="article.text"
+            [images]="article.images">
+          </app-article>
+        </section>
+      </div>
+    </div>
+
   </div>
 </div>
