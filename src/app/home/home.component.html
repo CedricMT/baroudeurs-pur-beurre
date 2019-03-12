@@ -1,3 +1,9 @@
 <header class="bg-light pt-4 pb-md-5 px-4 px-lg-5 d-flex d-md-block align-items-center title">
   <h1 class="mb-4 mr-auto mr-md-none">{{ title }}</h1>
 </header>
+
+<div class="row m-0 border border-white">
+  <app-tile *ngFor="let tile of tiles" class="col-12 col-md-4 p-0" [title]="tile.title" [iconUrl]="tile.iconUrl"
+    [text]="tile.text" [button]="tile.button">
+  </app-tile>
+</div>

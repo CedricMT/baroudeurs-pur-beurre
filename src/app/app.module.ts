@@ -13,6 +13,7 @@ import { MapComponent } from './map/map.component';
 import { FlyingMapComponent } from './flying-map/flying-map.component';
 import { JourneyComponent } from './journey/journey.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { TileComponent } from './common/tile/tile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     MapComponent,
     FlyingMapComponent,
     JourneyComponent,
-    SideNavComponent
+    SideNavComponent,
+    TileComponent
   ],
   imports: [
     BrowserModule,
