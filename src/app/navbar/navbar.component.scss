@@ -4,11 +4,10 @@ nav.navbar {
 
 .navbar-brand-text {
     color: rgba(255, 255, 255, 0.75);
+    max-height: 2.5rem;
 }
 
 .navbar-logo {
     height: 2.5rem;
     width: 2.5rem;
 }
-
-.invert { filter: invert(100%); }
