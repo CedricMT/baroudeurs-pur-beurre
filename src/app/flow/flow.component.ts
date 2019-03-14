@@ -9,7 +9,7 @@ export class FlowComponent implements OnInit {
 
   title = 'Nos Articles';
 
-    articles = [
+  articles = [
     {
       title: 'Premier Article',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sagittis erat eu lacus maximus, sit amet'
@@ -52,7 +52,5 @@ export class FlowComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }
