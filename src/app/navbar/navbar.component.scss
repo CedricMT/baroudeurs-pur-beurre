@@ -7,6 +7,15 @@ nav.navbar {
     max-height: 2.5rem;
 }
 
+.svg-colored {
+    filter: invert(87%) sepia(11%) saturate(5952%) hue-rotate(177deg) brightness(90%) contrast(98%);
+    cursor: pointer;
+}
+
+.svg-colored:hover {
+    filter: invert(95%) sepia(30%) saturate(2892%) hue-rotate(176deg) brightness(95%) contrast(99%);
+}
+
 .navbar-logo {
     height: 2.5rem;
     width: 2.5rem;

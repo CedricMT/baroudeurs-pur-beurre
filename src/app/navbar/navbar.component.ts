@@ -19,4 +19,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  subscribeNewsletter() {
+    alert('Bientôt l\'abonnement à la newsletter ! :)');
+  }
+
 }
