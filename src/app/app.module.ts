@@ -14,6 +14,7 @@ import { FlyingMapComponent } from './flying-map/flying-map.component';
 import { JourneyComponent } from './journey/journey.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { TileComponent } from './common/tile/tile.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TileComponent } from './common/tile/tile.component';
     FlyingMapComponent,
     JourneyComponent,
     SideNavComponent,
-    TileComponent
+    TileComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
