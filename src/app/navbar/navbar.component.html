@@ -8,11 +8,11 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto " routerLinkActive="active">
         <li *ngFor="let navLink of navLinks" class="nav-item">
-          <a class="nav-link px-3" [routerLink]="navLink.routerLink">{{navLink.label}}</a>
+          <a class="nav-link px-3" [routerLink]="navLink.routerLink">{{ navLink.label }}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link px-3" (click)="subscribeNewsletter()">
-            <img class="svg-colored" src="assets/images/notification.svg">
+            <i class="zmdi zmdi-notifications"></i>
           </a>
         </li>
       </ul>
