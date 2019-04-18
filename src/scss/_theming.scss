@@ -1,0 +1,32 @@
+// Required
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+:root {
+  --theme-mode: light;
+}
+
+// Custom theme by overriding default colors
+$theme-colors: (
+  "primary": #17a2b8,
+  // "secondary": #6c757d,
+  // "success": #28a745,
+  // "info": #17a2b8,
+  // "warning": #ffc107,
+  // "danger": #dc3545,
+  // "light": #f8f9fa,
+  // "dark": #343a40,
+);
+
+// Generate alert modifier classes
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    @include alert-variant(theme-color-level($color, -10), theme-color-level($color, -9), theme-color-level($color, 6));
+  }
+}
+
+// Generate `.bg-*` color utilities
+@each $color, $value in $theme-colors {
+  @include bg-variant('.bg-#{$color}', $value);
+}

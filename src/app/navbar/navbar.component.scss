@@ -1,17 +1,18 @@
+@import "theming";
+
 nav.navbar {
-    background: linear-gradient(135deg,#0143a3,#0273d4);
+  background: linear-gradient(135deg, theme-color-level('primary', +2), theme-color-level('primary', -2));
 }
 
 .navbar-brand-text {
-    color: rgba(255, 255, 255, 0.75);
-    max-height: 2.5rem;
+  max-height: 2.5rem;
 }
 
 .nav-link {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .navbar-logo {
-    height: 2.5rem;
-    width: 2.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
 }

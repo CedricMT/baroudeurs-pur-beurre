@@ -19,6 +19,11 @@ export class FlyingMapComponent {
 
   constructor(private zone: NgZone) { }
 
+  getColorFromTheme(colorName: string): string {
+    return getComputedStyle(document.documentElement)
+      .getPropertyValue('--' + colorName).trim();
+  }
+
   ngAfterViewInit() {
     this.zone.runOutsideAngular(() => {
       const map = am4core.create('chartdiv', am4maps.MapChart);
@@ -62,7 +67,8 @@ export class FlyingMapComponent {
 
       // Create hover state and set alternative fill color
       const hs = polygonTemplate.states.create('hover');
-      hs.properties.fill = am4core.color('#17a2b8');
+      hs.properties.fill = am4core.color(this.getColorFromTheme('primary'));
+      // hs.properties.fill = am4core.color('#17a2b8');
 
       this.map = map;
 
