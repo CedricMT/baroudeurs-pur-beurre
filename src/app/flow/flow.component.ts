@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Comment } from '@classes/comment';
+
+import { DbService } from '@services/db.service';
+
 @Component({
   selector: 'app-flow',
   templateUrl: './flow.component.html',
@@ -48,9 +52,25 @@ export class FlowComponent implements OnInit {
     }
   ];
 
+  comments: Comment[];
+
   articlesList = this.articles.map(article => article.title);
 
-  constructor() { }
+  constructor(private db: DbService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getComments();
+  }
+
+  getComments(): void {
+    this.db.getAll().subscribe(
+      (res: Comment[]) => {
+        this.comments = res;
+        console.log('Requesting comments success: ', res);
+      },
+      (err) => {
+        console.error('Error while requesting comments', err);
+      }
+    );
+  }
 }

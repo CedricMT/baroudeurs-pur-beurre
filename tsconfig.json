@@ -2,6 +2,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@classes/*": ["src/app/common/classes/*"],
+      "@services/*": ["src/app/services/*"],
+      "@assets/*": ["src/app/assets/*"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
