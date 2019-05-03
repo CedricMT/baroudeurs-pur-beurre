@@ -11,6 +11,9 @@ export class ArticleComponent {
   @Input() number: number;
   @Input() text: string;
   @Input() images: Array<string>;
+  @Input() comments: Array<string>;
+
+  isCommentsCollapsed = true;
 
   constructor() { }
 

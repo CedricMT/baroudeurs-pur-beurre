@@ -25,6 +25,16 @@ export class FlowComponent implements OnInit {
         + 'unc venenatis, sit amet lacinia ante pulvinar. Fusce tincidunt neque congue quam placerat, sit amet laoreet '
         + 'nibh euismod.',
       images: [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
+      comments: [
+        {
+          author: 'Cédric MOUBRI-TOURNES',
+          text: 'This first article is awersome !'
+        },
+        {
+          author: 'Marion GICQUEAU',
+          text: 'This second article is awersome !'
+        }
+      ]
     },
     {
       title: 'Deuxième Article',
@@ -37,6 +47,16 @@ export class FlowComponent implements OnInit {
         + 'unc venenatis, sit amet lacinia ante pulvinar. Fusce tincidunt neque congue quam placerat, sit amet laoreet '
         + 'nibh euismod.',
       images: [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
+      comments: [
+        {
+          author: 'Cédric MOUBRI-TOURNES',
+          text: 'This first article is awersome !'
+        },
+        {
+          author: 'Marion GICQUEAU',
+          text: 'This second article is awersome !'
+        }
+      ]
     },
     {
       title: 'Troisième Article',
@@ -49,6 +69,16 @@ export class FlowComponent implements OnInit {
         + 'unc venenatis, sit amet lacinia ante pulvinar. Fusce tincidunt neque congue quam placerat, sit amet laoreet '
         + 'nibh euismod.',
       images: [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
+      comments: [
+        {
+          author: 'Cédric MOUBRI-TOURNES',
+          text: 'This first article is awersome !'
+        },
+        {
+          author: 'Marion GICQUEAU',
+          text: 'This second article is awersome !'
+        }
+      ]
     }
   ];
 

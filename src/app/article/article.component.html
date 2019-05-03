@@ -13,5 +13,19 @@
       </ng-template>
     </ngb-carousel>
     <p class="text-justify"> {{text}} </p>
+    <a class="btn btn-outline-primary button-icon-primary" (click)="isCommentsCollapsed = !isCommentsCollapsed">
+      <i class="zmdi zmdi-comment"></i>
+      <span class="badge badge-light ml-2">{{ comments.length }}</span>
+    </a>
+
+    <div class="mt-3 border-top" [ngbCollapse]="isCommentsCollapsed">
+      <div class="mt-3" *ngFor="let comment of comments">
+        <h6 class="">{{ comment.author }}</h6>
+        <div class="card">
+          <div class="card-body quotation">{{ comment.text }}</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

@@ -1,0 +1,19 @@
+@import "theming";
+
+.quotation {
+  &:before,
+  &:after {
+    font-family: "Sanchez";
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: theme-color("primary");
+  }
+  &:before {
+    padding-right: 0.25rem;
+    content: "\201C";
+  }
+  &:after {
+    padding-left: 0.25rem;
+    content: "\201D";
+  }
+}
