@@ -5,14 +5,14 @@
       <img src="assets/images/brand.png" class="navbar-brand-text collapse navbar-collapse p-0">
       <img src="assets/images/brand-short.png" class="navbar-brand-text navbar-toggler p-0">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+      aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <div class="collapse navbar-collapse" id="navbarToggler">
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li *ngFor="let navLink of navLinks" class="nav-item">
+        <li *ngFor="let navLink of navLinks" class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
           <a class="nav-link" [routerLink]="navLink.routerLink">{{ navLink.label }}</a>
         </li>
         <li class="nav-item">
