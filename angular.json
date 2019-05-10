@@ -24,6 +24,7 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
+              "src/.htaccess",
               "src/assets"
             ],
             "stylePreprocessorOptions": {
@@ -96,6 +97,7 @@
             "scripts": [],
             "assets": [
               "src/favicon.ico",
+              "src/.htaccess",
               "src/assets"
             ]
           }
