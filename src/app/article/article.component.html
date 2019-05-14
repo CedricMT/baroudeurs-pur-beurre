@@ -4,8 +4,8 @@
 <div class="card mb-5">
   <div class="card-body">
     <ngb-carousel class="pb-4" *ngIf="images">
-      <ng-template ngbSlide *ngFor="let image of images">
-        <img [src]="image" class="w-100" alt="Random slide">
+      <ng-template ngbSlide *ngFor="let imageId of images">
+        <img [src]="'assets/pictures/' + imageId + '.jpg'" class="w-100" alt="Random slide">
         <div class="carousel-caption">
           <h3>Slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>

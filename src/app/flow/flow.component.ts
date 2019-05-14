@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Comment } from '@classes/comment';
+import { Article } from '@interfaces/article.interface';
+import { Comment } from '@interfaces/comment.interface';
 
 import { DbService } from '@services/db.service';
 
@@ -13,90 +14,43 @@ export class FlowComponent implements OnInit {
 
   title = 'Nos Articles';
 
-  articles = [
-    {
-      title: 'Premier Article',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sagittis erat eu lacus maximus, sit amet'
-        + 'scelerisque neque eleifend. Suspendisse potenti. Sed gravida accumsan sapien sit amet dignissim. Suspendisse'
-        + 'metus metus, interdum vel libero quis, egestas pharetra lacus. Nam fermentum sem quis mauris tincidunt, necv'
-        + 'ulputate purus pretium. Praesent lacinia nisi nec tellus luctus consectetur. Cras eu enim ac tortor porttito'
-        + 'r pulvinar at a eros. Donec neque risus, convallis ac ex sed, ultricies iaculis quam. Praesent dignissim ant'
-        + 'e nisl, nec posuere mi dictum in. In non purus et est bibendum vehicula in et justo. Donec tempor justo eu n'
-        + 'unc venenatis, sit amet lacinia ante pulvinar. Fusce tincidunt neque congue quam placerat, sit amet laoreet '
-        + 'nibh euismod.',
-      images: [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
-      comments: [
-        {
-          author: 'Cédric MOUBRI-TOURNES',
-          text: 'This first article is awersome !'
-        },
-        {
-          author: 'Marion GICQUEAU',
-          text: 'This second article is awersome !'
-        }
-      ]
-    },
-    {
-      title: 'Deuxième Article',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sagittis erat eu lacus maximus, sit amet'
-        + 'scelerisque neque eleifend. Suspendisse potenti. Sed gravida accumsan sapien sit amet dignissim. Suspendisse'
-        + 'metus metus, interdum vel libero quis, egestas pharetra lacus. Nam fermentum sem quis mauris tincidunt, necv'
-        + 'ulputate purus pretium. Praesent lacinia nisi nec tellus luctus consectetur. Cras eu enim ac tortor porttito'
-        + 'r pulvinar at a eros. Donec neque risus, convallis ac ex sed, ultricies iaculis quam. Praesent dignissim ant'
-        + 'e nisl, nec posuere mi dictum in. In non purus et est bibendum vehicula in et justo. Donec tempor justo eu n'
-        + 'unc venenatis, sit amet lacinia ante pulvinar. Fusce tincidunt neque congue quam placerat, sit amet laoreet '
-        + 'nibh euismod.',
-      images: [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
-      comments: [
-        {
-          author: 'Cédric MOUBRI-TOURNES',
-          text: 'This first article is awersome !'
-        },
-        {
-          author: 'Marion GICQUEAU',
-          text: 'This second article is awersome !'
-        }
-      ]
-    },
-    {
-      title: 'Troisième Article',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sagittis erat eu lacus maximus, sit amet'
-        + 'scelerisque neque eleifend. Suspendisse potenti. Sed gravida accumsan sapien sit amet dignissim. Suspendisse'
-        + 'metus metus, interdum vel libero quis, egestas pharetra lacus. Nam fermentum sem quis mauris tincidunt, necv'
-        + 'ulputate purus pretium. Praesent lacinia nisi nec tellus luctus consectetur. Cras eu enim ac tortor porttito'
-        + 'r pulvinar at a eros. Donec neque risus, convallis ac ex sed, ultricies iaculis quam. Praesent dignissim ant'
-        + 'e nisl, nec posuere mi dictum in. In non purus et est bibendum vehicula in et justo. Donec tempor justo eu n'
-        + 'unc venenatis, sit amet lacinia ante pulvinar. Fusce tincidunt neque congue quam placerat, sit amet laoreet '
-        + 'nibh euismod.',
-      images: [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
-      comments: [
-        {
-          author: 'Cédric MOUBRI-TOURNES',
-          text: 'This first article is awersome !'
-        },
-        {
-          author: 'Marion GICQUEAU',
-          text: 'This second article is awersome !'
-        }
-      ]
-    }
-  ];
-
-  comments: Comment[];
-
-  articlesList = this.articles.map(article => article.title);
+  articles: Article[] = [];
+  articlesList: string[] = [];
+  comments: Comment[] = [];
 
   constructor(private db: DbService) { }
 
   ngOnInit() {
+    this.getArticles();
     this.getComments();
   }
 
   getComments(): void {
-    this.db.getAll().subscribe(
-      (res: Comment[]) => {
-        this.comments = res;
-        console.log('Requesting comments success: ', res);
+    this.db.getAll('comments').subscribe(
+      (comments: Comment[]) => {
+        console.log('Requesting comments success: ', comments);
+
+        // Update articles related comments from result
+        comments.forEach((comment: Comment) => {
+          const index = this.articles.findIndex((article: Article) => article.id === comment.id);
+          this.articles[index].comments.push(comment);
+        });
+
+      },
+      (err) => {
+        console.error('Error while requesting comments', err);
+      }
+    );
+  }
+
+  getArticles(): void {
+    this.db.getAll('articles').subscribe(
+      (results: any[]) => {
+        console.log('Requesting articles success: ', results);
+
+        // Update articles array with result
+        this.articles = results.map(result => Object.assign(result, { comments: [] }));
+        this.articlesList = this.articles.map(article => article.title);
       },
       (err) => {
         console.error('Error while requesting comments', err);

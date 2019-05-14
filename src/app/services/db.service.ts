@@ -16,8 +16,8 @@ export class DbService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Comment[]> {
-    return this.http.get(`${this.baseUrl}/list`).pipe(
+  getAll(target: string): Observable<Comment[]> {
+    return this.http.get(this.baseUrl + '/' + target).pipe(
       map((res) => {
         this.comments = res['data'];
         return this.comments;
