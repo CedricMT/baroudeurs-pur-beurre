@@ -2,6 +2,7 @@
   <div class="container">
     <a class="navbar-brand d-inline-flex" routerLink="">
       <img src="assets/images/world_color.png" class="navbar-logo mr-3">
+      <!-- https://fontmeme.com/brush-fonts/ -->
       <img src="assets/images/brand.png" class="navbar-brand-text collapse navbar-collapse p-0">
       <img src="assets/images/brand-short.png" class="navbar-brand-text navbar-toggler p-0">
     </a>
@@ -12,7 +13,8 @@
 
     <div class="collapse navbar-collapse" id="navbarToggler">
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li *ngFor="let navLink of navLinks" class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <li *ngFor="let navLink of navLinks" class="nav-item" data-toggle="collapse"
+          data-target=".navbar-collapse.show">
           <a class="nav-link" [routerLink]="navLink.routerLink">{{ navLink.label }}</a>
         </li>
         <li class="nav-item">
