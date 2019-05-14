@@ -10,14 +10,12 @@ import { Comment } from '@classes/comment';
 })
 export class DbService {
 
-  baseUrl = 'http://localhost/api';
-
   comments: Comment[];
 
   constructor(private http: HttpClient) { }
 
   getAll(target: string): Observable<Comment[]> {
-    return this.http.get(this.baseUrl + '/' + target).pipe(
+    return this.http.get(window.location.origin + '/api/' + target).pipe(
       map((res) => {
         this.comments = res['data'];
         return this.comments;
