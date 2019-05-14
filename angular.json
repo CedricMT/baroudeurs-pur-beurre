@@ -25,6 +25,7 @@
             "assets": [
               "src/favicon.ico",
               "src/.htaccess",
+              "src/api",
               "src/assets"
             ],
             "stylePreprocessorOptions": {
@@ -98,6 +99,7 @@
             "assets": [
               "src/favicon.ico",
               "src/.htaccess",
+              "src/api",
               "src/assets"
             ]
           }
