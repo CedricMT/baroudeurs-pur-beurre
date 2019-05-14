@@ -4,6 +4,7 @@
     "baseUrl": "./",
     "paths": {
       "@classes/*": ["src/app/common/classes/*"],
+      "@interfaces/*": ["src/app/common/interfaces/*"],
       "@services/*": ["src/app/services/*"],
       "@assets/*": ["src/app/assets/*"]
     },
