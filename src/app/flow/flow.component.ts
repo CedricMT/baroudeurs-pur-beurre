@@ -22,25 +22,6 @@ export class FlowComponent implements OnInit {
 
   ngOnInit() {
     this.getArticles();
-    this.getComments();
-  }
-
-  getComments(): void {
-    this.db.getAll('comments').subscribe(
-      (comments: Comment[]) => {
-        console.log('Requesting comments success: ', comments);
-
-        // Update articles related comments from result
-        comments.forEach((comment: Comment) => {
-          const index = this.articles.findIndex((article: Article) => article.id === comment.id);
-          this.articles[index].comments.push(comment);
-        });
-
-      },
-      (err) => {
-        console.error('Error while requesting comments', err);
-      }
-    );
   }
 
   getArticles(): void {
@@ -49,7 +30,7 @@ export class FlowComponent implements OnInit {
         console.log('Requesting articles success: ', results);
 
         // Update articles array with result
-        this.articles = results.map(result => Object.assign(result, { comments: [] }));
+        this.articles = results;
         this.articlesList = this.articles.map(article => article.title);
       },
       (err) => {
