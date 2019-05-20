@@ -1,26 +1,22 @@
-<!-- https://www.bootdey.com/snippets/view/bs4-clear-timeline -->
+<!-- https://bootsnipp.com/snippets/OzQj -->
 <div class="container">
-  <div class="row">
-    <div class="col-md-10">
-      <ul class="cbp_tmtimeline">
-        <li *ngFor="let event of events">
-          <time class="cbp_tmtime" datetime="2017-11-04T18:30"><span class="hidden">{{ event.date }}</span> <span
-              [ngClass]="{'large': event.duration === 'Maintenant'}">{{ event.duration }}</span></time>
-          <div [ngClass]="{
-            'cbp_tmicon': true, 
-            'bg-green': event.icon === 'boat', 
-            'bg-blush': event.icon === 'airplane', 
-            'bg-orange': event.icon === 'railway'
-          }">
-            <i [ngClass]="['zmdi', 'zmdi-' + event.icon]"></i>
+  <ul class="timeline">
+    <li *ngFor="let event of events; index as i" [ngClass]="{'timeline-inverted': (i % 2) !== 0}">
+      <div class="timeline-badge text-info">
+        <i class="zmdi zmdi-gps-dot"></i>
+      </div>
+      <div class="card timeline-panel">
+        <div class="card-body">
+          <div class="card-title">
+            <h4 class="timeline-title d-flex align-items-center">
+              <!-- https://github.com/hjnilsson/country-flags -->
+              <img class="mr-2" [src]="event.flagUrl">{{ event.country }}
+            </h4>
+            <p><small class="text-muted"><i class="zmdi zmdi zmdi-calendar-alt mr-2"></i>{{ event.date }}</small></p>
           </div>
-          <div class="cbp_tmlabel bg-light">
-            <h2><a href="javascript:void(0);" class="d-flex align-items-center"><img class="mr-2"
-                  [src]="event.flagUrl">{{ event.country }}</a></h2>
-            <p *ngIf="event.description">{{ event.description }}</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+          <p>{{ event.text }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>

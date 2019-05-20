@@ -7,47 +7,41 @@ import { Component } from '@angular/core';
 })
 export class TimelineComponent {
 
-  // https://www.bootdey.com/snippets/view/bs4-clear-timeline
   events = [
     {
-      date: '25/12/2017',
-      duration: 'Maintenant',
-      country: 'France',
-      icon: 'airplane',
-      flagUrl: 'assets/images/flags/fr.svg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nunc lorem, sagittis vitae mauris porttitor, efficitur'
-        + ' fermentum ante. Quisque velit eros, ultricies sit amet eros quis, porta placerat mauris.'
-    },
-    {
-      date: '25/12/2017',
-      duration: '3 semaines',
-      country: 'Japon',
-      icon: 'boat',
-      flagUrl: 'assets/images/flags/jp.svg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nunc lorem, sagittis vitae mauris porttitor, efficitur'
-        + ' fermentum ante. Quisque velit eros, ultricies sit amet eros quis, porta placerat mauris.'
-    },
-    {
-      date: '25/12/2017',
+      date: '18/09/2019',
       duration: '1 mois',
       country: 'Chine',
-      icon: 'bus',
       flagUrl: 'assets/images/flags/cn.svg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nunc lorem, sagittis vitae mauris porttitor, efficitur'
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nunc lorem, sagittis vitae mauris porttitor, efficitur'
         + ' fermentum ante. Quisque velit eros, ultricies sit amet eros quis, porta placerat mauris.'
     },
     {
-      date: '25/12/2017',
+      date: '06/08/2019',
+      duration: '1 mois et demi',
+      country: 'Japon',
+      flagUrl: 'assets/images/flags/jp.svg',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nunc lorem, sagittis vitae mauris porttitor, efficitur'
+        + ' fermentum ante. Quisque velit eros, ultricies sit amet eros quis, porta placerat mauris.'
+    },
+    {
+      date: '06/07/2019',
       duration: '1 mois',
-      country: 'Inde',
-      icon: 'railway',
-      flagUrl: 'assets/images/flags/in.svg',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nunc lorem, sagittis vitae mauris porttitor, efficitur'
+      country: 'Cambodge',
+      flagUrl: 'assets/images/flags/kh.svg',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nunc lorem, sagittis vitae mauris porttitor, efficitur'
+        + ' fermentum ante. Quisque velit eros, ultricies sit amet eros quis, porta placerat mauris.'
+    },
+    {
+      date: '06/06/2019',
+      duration: '1 mois',
+      country: 'Indonésie',
+      flagUrl: 'assets/images/flags/id.svg',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nunc lorem, sagittis vitae mauris porttitor, efficitur'
         + ' fermentum ante. Quisque velit eros, ultricies sit amet eros quis, porta placerat mauris.'
     }
   ];
 
   constructor() { }
-
 
 }
