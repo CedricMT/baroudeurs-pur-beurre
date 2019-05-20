@@ -10,6 +10,7 @@ export class TimelineComponent {
   events = [
     {
       date: '18/09/2019',
+      state: 'future',
       duration: '1 mois',
       country: 'Chine',
       flagUrl: 'assets/images/flags/cn.svg',
@@ -18,6 +19,7 @@ export class TimelineComponent {
     },
     {
       date: '06/08/2019',
+      state: 'future',
       duration: '1 mois et demi',
       country: 'Japon',
       flagUrl: 'assets/images/flags/jp.svg',
@@ -26,6 +28,7 @@ export class TimelineComponent {
     },
     {
       date: '06/07/2019',
+      state: 'current',
       duration: '1 mois',
       country: 'Cambodge',
       flagUrl: 'assets/images/flags/kh.svg',
@@ -34,6 +37,7 @@ export class TimelineComponent {
     },
     {
       date: '06/06/2019',
+      state: 'past',
       duration: '1 mois',
       country: 'Indonésie',
       flagUrl: 'assets/images/flags/id.svg',

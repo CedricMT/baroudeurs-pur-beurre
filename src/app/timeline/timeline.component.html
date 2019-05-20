@@ -2,19 +2,28 @@
 <div class="container">
   <ul class="timeline">
     <li *ngFor="let event of events; index as i" [ngClass]="{'timeline-inverted': (i % 2) !== 0}">
-      <div class="timeline-badge text-info">
-        <i class="zmdi zmdi-gps-dot"></i>
+      <div class="timeline-badge">
+        <i *ngIf="event.state === 'future'" class="text-secondary zmdi zmdi-circle-o"></i>
+        <i *ngIf="event.state === 'current'" class="text-info zmdi zmdi-gps-dot"></i>
+        <i *ngIf="event.state === 'past'" class="text-info zmdi zmdi-dot-circle"></i>
       </div>
       <div class="card timeline-panel">
         <div class="card-body">
-          <div class="card-title">
+          <div class="card-title" [ngClass]="{'mb-0 text-muted monochrome': event.state === 'future'}">
             <h4 class="timeline-title d-flex align-items-center">
               <!-- https://github.com/hjnilsson/country-flags -->
               <img class="mr-2" [src]="event.flagUrl">{{ event.country }}
             </h4>
-            <p><small class="text-muted"><i class="zmdi zmdi zmdi-calendar-alt mr-2"></i>{{ event.date }}</small></p>
+            <p class="mb-0">
+              <small class="text-muted">
+                <i class="zmdi zmdi-calendar-alt mr-2"></i>
+                <span>{{ event.date }}</span>
+                <i class="zmdi zmdi-chevron-right mx-2"></i>
+                <span>{{ event.duration }}</span>
+              </small>
+            </p>
           </div>
-          <p>{{ event.text }}</p>
+          <p *ngIf="event.state !== 'future'">{{ event.text }}</p>
         </div>
       </div>
     </li>
