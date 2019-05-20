@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       button: {
         label: 'Nous trouver',
-        routerLink: '/journey'
+        routerLink: '/location'
       }
     }
   ];
