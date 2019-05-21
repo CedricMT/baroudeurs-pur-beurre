@@ -60,8 +60,9 @@
   content: " ";
 }
 
-.timeline > li > .border-primary:before {
-  border-left: 15px solid theme-color-level('primary', +3);
+.timeline > li > .border-primary:before, .border-primary:after{
+  border-left-color: theme-color-level('primary', +3);
+  border-right-color: theme-color-level('primary', +3);
 }
 
 .timeline > li > .timeline-panel:after {
