@@ -1,13 +1,14 @@
 <!-- https://bootsnipp.com/snippets/OzQj -->
-<div class="container">
+<div class="container d-flex flex-column align-items-center">
   <ul class="timeline">
-    <li *ngFor="let event of events; index as i" [ngClass]="{'timeline-inverted': (i % 2) !== 0}">
+    <li *ngFor="let event of events; index as i" [ngClass]="{'timeline-inverted': event.state === 'future'}"
+      [ngbCollapse]="isFutureLocationsCollapsed && (i > collapseFutureLocationIndex)">
       <div class="timeline-badge">
         <i *ngIf="event.state === 'future'" class="text-secondary zmdi zmdi-circle-o"></i>
         <i *ngIf="event.state === 'current'" class="text-info zmdi zmdi-gps-dot"></i>
         <i *ngIf="event.state === 'past'" class="text-info zmdi zmdi-dot-circle"></i>
       </div>
-      <div class="card timeline-panel">
+      <div class="card timeline-panel" [ngClass]="{'border-primary': event.state === 'current'}">
         <div class="card-body">
           <div class="card-title" [ngClass]="{'mb-0 text-muted monochrome': event.state === 'future'}">
             <h4 class="timeline-title d-flex align-items-center">
@@ -28,4 +29,9 @@
       </div>
     </li>
   </ul>
+  <a class="btn btn-outline-primary button-icon-primary mb-3"
+    (click)="isFutureLocationsCollapsed = !isFutureLocationsCollapsed">
+    <span *ngIf="isFutureLocationsCollapsed" class="">Voir prochains pays</span>
+    <span *ngIf="!isFutureLocationsCollapsed" class="">Fermer prochains pays</span>
+  </a>
 </div>
