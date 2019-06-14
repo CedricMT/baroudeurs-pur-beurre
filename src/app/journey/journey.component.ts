@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class JourneyComponent implements OnInit {
 
   title = 'Voyage d\'Est en Ouest';
-  description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+  description = 'Départ en juin 2019 en Indonésie, pour une arrivée au Mexique prévue en décembre 2020 ... L\'itinéraire ne peut pas être parfaitement callé à l\'avance, parce que c\'est aussi ce qui fait le charme du voyage il nous semble ! Vous pouvez tout de même suivre le trajet de l\'avion pour avoir une idée approximative de notre parcours ... ';
 
   constructor() { }
 

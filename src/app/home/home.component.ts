@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
     {
       title: 'Nos Articles',
       iconUrl: 'assets/images/camera.svg',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-        + ' Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      text: 'Envie d\'avoir quelques nouvelles des baroudeurs, connaitre les anectodes, les rencontres ou les galères du voyage, c\'est par ici ...'
+        + '  Et bien sûr tous les articles sont accompagnés de photos :)',
       button: {
         label: 'Voir les articles',
         routerLink: '/flow'
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     {
       title: 'Le Périple',
       iconUrl: 'assets/images/world_plane.svg',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      text: 'Traversée des trois continents de l\'asie à l\'amérique latine, en passant par l\'afrique, pour une durée de 18 mois ou plus si affinité ...',
       button: {
         label: 'Découvrir le périple',
         routerLink: '/journey'
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     {
       title: 'Où en Sommes Nous ?',
       iconUrl: 'assets/images/destination.svg',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      text: 'Un peu perdu dans les dates et les destinations ? Pour savoir où nous sommes rendu c\'est par là !',
       button: {
         label: 'Nous trouver',
         routerLink: '/location'
