@@ -12,7 +12,7 @@
         </div>
       </ng-template>
     </ngb-carousel>
-    <p class="text-justify"> {{text}} </p>
+    <p class="text-justify" [innerHTML]="text"></p>
     <a class="btn btn-outline-primary button-icon-primary" (click)="isCommentsCollapsed = !isCommentsCollapsed">
       <i class="zmdi zmdi-comment"></i>
       <span class="badge badge-light ml-2">{{ comments.length }}</span>
