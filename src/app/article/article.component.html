@@ -3,15 +3,19 @@
 </h2>
 <div class="card mb-5">
   <div class="card-body">
-    <ngb-carousel class="pb-4" *ngIf="images">
-      <ng-template ngbSlide *ngFor="let imageId of images">
-        <img [src]="'assets/pictures/' + imageId + '.jpg'" class="w-100" alt="Random slide">
-        <div class="carousel-caption">
-          <!-- <h3>Slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
-        </div>
-      </ng-template>
-    </ngb-carousel>
+      <ngb-carousel class="pb-4" *ngIf="images">
+        <ng-template ngbSlide *ngFor="let imageId of images">
+          <div class="image-container">
+            <div class="image-sub-container d-flex justify-content-center bg-dark">
+              <img [src]="'assets/pictures/' + imageId + '.jpg'" alt="Random slide">
+            </div>
+          </div>
+          <div class="carousel-caption">
+            <!-- <h3>Slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
+          </div>
+        </ng-template>
+      </ngb-carousel>
     <p class="text-justify" [innerHTML]="text"></p>
     <a class="btn btn-outline-primary button-icon-primary" (click)="isCommentsCollapsed = !isCommentsCollapsed">
       <i class="zmdi zmdi-comment"></i>
