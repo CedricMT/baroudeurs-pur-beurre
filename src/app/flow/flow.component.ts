@@ -30,7 +30,7 @@ export class FlowComponent implements OnInit {
         console.log('Requesting articles success: ', results);
 
         // Update articles array with result
-        this.articles = results;
+        this.articles = results.reverse();
         this.articlesList = this.articles.map(article => article.title);
       },
       (err) => {
