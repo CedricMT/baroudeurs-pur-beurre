@@ -1,9 +1,9 @@
 <nav class="toc py-3">
   <div class="toc-item" [class.active]="isActive(['/articles'], false)">
     <a class="toc-link">Nos Articles</a>
-    <ul class="nav flex-column">
+    <ul class="nav flex-column ml-3">
       <li *ngFor="let article of articles; index as i" [class.active]="isActive(['/home', 'article-' + i], false)">
-        <a class="toc-link" [href]="'/flow#article-' + i">{{ article }}</a>
+        <a class="toc-link" [href]="'/flow#article-' + (articles.length - i)">{{ article }}</a>
       </li>
     </ul>
   </div>

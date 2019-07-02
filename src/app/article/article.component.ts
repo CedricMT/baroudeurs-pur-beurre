@@ -11,7 +11,7 @@ import { DataService } from '@services/data.service';
 })
 export class ArticleComponent implements OnInit {
 
-  @Input() id: number;
+  @Input() articleId: number;
   @Input() title: string;
   @Input() number: number;
   @Input() text: string;
@@ -36,7 +36,7 @@ export class ArticleComponent implements OnInit {
   }
 
   addComment() {
-    const comment = Object.assign({ articleId: this.id }, this.commentForm.value);
+    const comment = Object.assign({ articleId: this.articleId }, this.commentForm.value);
     this.db.addComment(comment).subscribe(
       (results: any) => {
         console.log(results);
