@@ -6,6 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 import { Comment } from '@classes/comment';
+import { Article } from '@interfaces/article.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,19 +19,22 @@ export class DbService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(target: string): Observable<Comment[]> {
-    return this.http.get(this.apiUrl + target).pipe(
-      map((res) => {
-        this.comments = res['data'];
-        return this.comments;
-      }),
+  public getAll<T>(target: string): Observable<T[]> {
+    return this.http.get<T>(this.apiUrl + target).pipe(
+      map((res) => res['data']),
+      catchError(this.handleError));
+  }
+
+  public addComment(comment: Comment) {
+    return this.http.post<Comment>(this.apiUrl + 'addComment', comment).pipe(
+      map((res) => res['response']),
       catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
     console.error(error);
 
-    // return an observable with a user friendly message
-    return throwError('Error! something went wrong.');
+    // Return an observable with a user friendly message
+    return throwError('An error occured in db service.');
   }
 }

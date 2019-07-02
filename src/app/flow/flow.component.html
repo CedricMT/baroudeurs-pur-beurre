@@ -2,7 +2,7 @@
   <div class="row flex-xl-nowrap">
 
     <div class="col-12 col-lg-2 border-right">
-      <app-side-nav class="d-lg-block my-3 collapse sticky-top" [articles]="articlesList">
+      <app-side-nav class="d-lg-block my-3 collapse sticky-top" [articles]="articlesTitleList">
         <nav class="toc py-3">
           <div class="toc-item">
             <a class="toc-link" routerlink="/" href="#/"></a>
@@ -19,7 +19,7 @@
       </header>
       <div class="row">
         <section class="col-xl-11 mx-auto py-5 px-2 px-md-4 px-lg-5 d-flex flex-column">
-          <app-article *ngFor="let article of articles; index as i" [id]="'article-' + i" [title]="article.title"
+          <app-article *ngFor="let article of articles; index as i" [id]="article.id" [title]="article.title"
             [number]="articles.length - i" [text]="article.text" [images]="article.images" [comments]="article.comments">
           </app-article>
         </section>

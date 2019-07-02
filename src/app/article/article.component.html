@@ -3,19 +3,19 @@
 </h2>
 <div class="card mb-5">
   <div class="card-body">
-      <ngb-carousel class="pb-4" *ngIf="images">
-        <ng-template ngbSlide *ngFor="let imageId of images">
-          <div class="image-container">
-            <div class="image-sub-container d-flex justify-content-center bg-dark">
-              <img [src]="'assets/pictures/' + imageId + '.jpg'" alt="Random slide">
-            </div>
+    <ngb-carousel class="pb-4" *ngIf="images">
+      <ng-template ngbSlide *ngFor="let imageId of images">
+        <div class="image-container">
+          <div class="image-sub-container d-flex justify-content-center bg-dark">
+            <img [src]="'assets/pictures/' + imageId + '.jpg'" alt="Random slide">
           </div>
-          <div class="carousel-caption">
-            <!-- <h3>Slide label</h3>
+        </div>
+        <div class="carousel-caption">
+          <!-- <h3>Slide label</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
-          </div>
-        </ng-template>
-      </ngb-carousel>
+        </div>
+      </ng-template>
+    </ngb-carousel>
     <p class="text-justify" [innerHTML]="text"></p>
     <a class="btn btn-outline-primary button-icon-primary" (click)="isCommentsCollapsed = !isCommentsCollapsed">
       <i class="zmdi zmdi-comment"></i>
@@ -23,8 +23,25 @@
     </a>
 
     <div class="mt-3 border-top" [ngbCollapse]="isCommentsCollapsed">
+
+      <div [formGroup]="commentForm" class="mt-3" [ngbCollapse]="isNewCommentCollapsed">
+        <input type="text" formControlName="author" class="form-control mt-3" placeholder="Nom" required>
+        <input type="text" formControlName="text" class="form-control mt-3" placeholder="Commentaire" required>
+      </div>
+
+      <div class="mt-3">
+        <button tabindex="newCommentBtn" class="btn" type="button" (click)="isNewCommentCollapsed = !isNewCommentCollapsed"
+          [ngClass]="{ 'btn-outline-primary': isNewCommentCollapsed, 'btn-outline-secondary':  !isNewCommentCollapsed }">
+          {{ isNewCommentCollapsed ? 'Nouveau' : 'Annuler' }}
+      </button>
+        <button *ngIf="!isNewCommentCollapsed" tabindex="addCommentBtn" type="button" class="btn btn-outline-primary ml-3" (click)="addComment()"
+          [disabled]="commentForm.hasError('required', ['author']) || commentForm.hasError('required', ['text'])">
+          Ajouter
+      </button>
+      </div>
+
       <div class="mt-3" *ngFor="let comment of comments">
-        <h6 class="">{{ comment.author }}</h6>
+        <h6 class="font-weight-bold">{{ comment.author }}</h6>
         <div class="card">
           <div class="card-body quotation">{{ comment.text }}</div>
         </div>

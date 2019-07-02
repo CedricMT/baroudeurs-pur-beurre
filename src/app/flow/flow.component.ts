@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from '@interfaces/article.interface';
 import { Comment } from '@interfaces/comment.interface';
 
-import { DbService } from '@services/db.service';
+import { DataService } from '@services/data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-flow',
@@ -14,28 +15,62 @@ export class FlowComponent implements OnInit {
 
   title = 'Nos Articles';
 
+  articlesSubscription: Subscription;
   articles: Article[] = [];
-  articlesList: string[] = [];
+  articlesTitleList: string[] = [];
+
+  commentsSubscription: Subscription;
   comments: Comment[] = [];
 
-  constructor(private db: DbService) { }
+  constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.getArticles();
+    // Subscribe to data
+    this.subscribeArticles();
+    this.subscribeComments();
+
+    // Update articles and associated comments
+    this.data.updateArticles();
   }
 
-  getArticles(): void {
-    this.db.getAll('articles').subscribe(
-      (results: any[]) => {
-        console.log('Requesting articles success: ', results);
+  private subscribeArticles(): void {
+    this.articlesSubscription = this.data.getArticlesAsObservable().subscribe((articles: Article[]) => {
+      // Update articles and title list
+      this.articles = articles;
+      this.articlesTitleList = this.articles.map(article => article.title);
 
-        // Update articles array with result
-        this.articles = results.reverse();
-        this.articlesList = this.articles.map(article => article.title);
-      },
-      (err) => {
-        console.error('Error while requesting comments', err);
+      // Update comments
+      this.data.updateComments();
+    });
+  }
+
+  private resetArticleComments(): void {
+    this.articles.forEach((article: Article) => article.comments = []);
+  }
+
+  private subscribeComments(): void {
+    this.commentsSubscription = this.data.getCommentsAsObservable().subscribe((comments: Comment[]) => {
+      this.insertCommentsArticles(comments);
+    });
+  }
+
+  private insertCommentsArticles(comments: Comment[]) {
+    // Reset all article comments before update
+    this.resetArticleComments();
+
+    // Update article comments
+    comments.forEach((comment: Comment) => {
+      const article = this.articles.find((article: Article) => article.id === comment.articleId);
+      if (article) {
+        article.comments.push(comment);
+      } else {
+        console.error('Unknown article with id: ', comment.articleId, ', cannot insert comment: ', comment);
       }
-    );
+    })
+  };
+
+  // Unsubscribe to ensure no memory leaks
+  ngOnDestroy() {
+    this.articlesSubscription.unsubscribe();
   }
 }
