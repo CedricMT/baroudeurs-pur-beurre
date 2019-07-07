@@ -20,6 +20,7 @@ export class ArticleComponent implements OnInit {
 
   isCommentsCollapsed = true;
   isNewCommentCollapsed = true;
+  isOverviewMode = true;
 
   commentForm: FormGroup;
 
