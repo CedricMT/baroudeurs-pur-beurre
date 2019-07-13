@@ -17,7 +17,7 @@ export class FlowComponent implements OnInit {
 
   articlesSubscription: Subscription;
   articles: Article[] = [];
-  articlesTitleList: string[] = [];
+  articlesLinks: any[] = [];
 
   commentsSubscription: Subscription;
   comments: Comment[] = [];
@@ -37,7 +37,9 @@ export class FlowComponent implements OnInit {
     this.articlesSubscription = this.data.getArticlesAsObservable().subscribe((articles: Article[]) => {
       // Update articles and title list
       this.articles = articles;
-      this.articlesTitleList = this.articles.map(article => article.title);
+      this.articlesLinks = this.articles.map(article => {
+        return { label: article.title, id: article.id };
+      });
 
       // Update comments
       this.data.updateComments();
@@ -69,8 +71,9 @@ export class FlowComponent implements OnInit {
     })
   };
 
-  // Unsubscribe to ensure no memory leaks
+  // Unsubscribe to subscriptions
   ngOnDestroy() {
     this.articlesSubscription.unsubscribe();
+    this.commentsSubscription.unsubscribe();
   }
 }
