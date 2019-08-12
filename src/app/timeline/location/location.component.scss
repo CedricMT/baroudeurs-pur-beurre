@@ -1,0 +1,51 @@
+@import "theming";
+
+.stroke-gray {
+  stroke: #ccc;
+}
+
+.stroke-primary {
+  stroke: theme-color-level('primary') !important;
+}
+
+.fill-none {
+  fill: none;
+}
+
+.fill-white {
+  fill: white;
+}
+
+.chevron-icon {
+  margin-top: 1.25rem;
+  z-index: 1;
+  width: 15px;
+  height: 30px;
+}
+
+.chevron-right {
+  margin-left: -1px;
+}
+
+.chevron-left {
+  margin-right: -1px;
+}
+
+.monochrome img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.timeline-panel {
+  // max-width: 300px;
+} 
+
+.timeline-title {
+  margin-top: 0;
+  color: inherit;
+  img {
+    max-width: 30px;
+    border-radius: 2px;
+  }
+}
+  

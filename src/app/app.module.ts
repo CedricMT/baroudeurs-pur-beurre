@@ -17,7 +17,7 @@ import { JourneyComponent } from './journey/journey.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { TileComponent } from './common/tile/tile.component';
 import { TimelineComponent } from './timeline/timeline.component';
-import { LocationComponent } from './location/location.component';
+import { LocationComponent } from './timeline/location/location.component';
 
 @NgModule({
   declarations: [

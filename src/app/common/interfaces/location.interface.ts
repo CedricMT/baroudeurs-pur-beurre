@@ -4,5 +4,5 @@ export interface Location {
     state: string;
     duration: string;
     country: string;
-    flagUrl: string;
+    flagLabel: string;
 }

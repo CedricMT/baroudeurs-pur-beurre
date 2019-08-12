@@ -1,0 +1,30 @@
+<div class="d-flex">
+  <svg *ngIf="direction === 'left'" class="chevron-icon chevron-left" viewBox="0 0 50 100">
+    <path d="M 50 0 l -50 50 l 50 50" class="stroke-gray fill-white" [ngClass]="{'stroke-primary': location.state === 'current'}" stroke-width="2" />
+  </svg>
+
+  <div class="card timeline-panel flex-grow-1" [ngClass]="{'border-primary': location.state === 'current'}">
+    <div class="card-body">
+      <div class="card-title" [ngClass]="{'mb-0 text-muted monochrome': location.state === 'future'}">
+        <h4 class="timeline-title d-flex align-items-center">
+          <!-- https://github.com/hjnilsson/country-flags -->
+          <img class="mr-2" [src]="flagRootPath + location.flagLabel + '.svg'">{{ location.country }}
+        </h4>
+        <p class="mb-0">
+          <small class="text-muted">
+            <i class="zmdi zmdi-calendar-alt mr-2"></i>
+            <span>{{ location.date }}</span>
+            <i class="zmdi zmdi-chevron-right mx-2"></i>
+            <span>{{ location.duration }}</span>
+          </small>
+        </p>
+      </div>
+      <!-- <p class="card-text" *ngIf="location.state !== 'future'">{{ location.text }}</p> -->
+    </div>
+  </div>
+
+  <svg *ngIf="direction === 'right'" class="chevron-icon chevron-right" viewBox="0 0 50 100">
+    <path d="M 0 0 l 50 50 l -50 50" class="stroke-gray fill-white" [ngClass]="{'stroke-primary': location.state === 'current'}"
+      stroke-width="2" />
+  </svg>
+</div>

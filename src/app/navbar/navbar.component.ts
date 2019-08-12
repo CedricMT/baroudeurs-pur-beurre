@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
     { label: 'Accueil', routerLink: 'home' },
     { label: 'Nos Articles', routerLink: 'flow' },
     { label: 'Le Périple', routerLink: 'journey' },
-    { label: 'Où en Sommes Nous ?', routerLink: 'location' }
+    { label: 'Où en Sommes Nous ?', routerLink: 'timeline' }
   ];
 
   constructor() { }

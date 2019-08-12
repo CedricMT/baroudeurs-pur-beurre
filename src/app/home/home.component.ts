@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
       text: 'Un peu perdu dans les dates et les destinations ? Pour savoir où nous sommes rendu c\'est par là !',
       button: {
         label: 'Nous trouver',
-        routerLink: '/location'
+        routerLink: '/timeline'
       }
     }
   ];

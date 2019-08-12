@@ -17,8 +17,6 @@ export class TimelineComponent implements OnInit {
   public isFutureLocationsCollapsed = true;
   public collapseFutureLocationIndex = 0;
 
-  public flagRootPath = 'assets/images/flags/';
-
   constructor(private data: DataService) { }
 
   ngOnInit() {
@@ -37,7 +35,6 @@ export class TimelineComponent implements OnInit {
         return firstLocation.id >= secondLocation.id ? 1 : -1;
       });
 
-      console.log(this.locations);
       this.collapseFutureLocationIndex = this.locations.findIndex(location => location.state === 'future');
     });
   };

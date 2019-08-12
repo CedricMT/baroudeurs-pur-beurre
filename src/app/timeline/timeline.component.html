@@ -1,35 +1,41 @@
+<header class="bg-light pt-4 pb-md-5 px-4 px-lg-5 d-flex d-md-block align-items-center title">
+  <h1 class="mb-4 mr-auto mr-md-none">Où en Sommes Nous ?</h1>
+</header>
+
 <!-- https://bootsnipp.com/snippets/OzQj -->
-<div class="container d-flex flex-column align-items-center">
-  <ul class="timeline">
+<div class="container-fluid d-flex flex-column align-items-center">
+
+  <ul class="timeline container">
     <li *ngFor="let location of locations; index as i" [ngClass]="{'timeline-inverted': location.state === 'future'}"
       [ngbCollapse]="isFutureLocationsCollapsed && (i > collapseFutureLocationIndex)">
-      <div class="timeline-badge">
-        <i *ngIf="location.state === 'future'" class="text-secondary zmdi zmdi-circle-o"></i>
-        <i *ngIf="location.state === 'current'" class="text-info zmdi zmdi-gps-dot"></i>
-        <i *ngIf="location.state === 'past'" class="text-info zmdi zmdi-dot-circle"></i>
-      </div>
-      <div class="card timeline-panel" [ngClass]="{'border-primary': location.state === 'current'}">
-        <div class="card-body">
-          <div class="card-title" [ngClass]="{'mb-0 text-muted monochrome': location.state === 'future'}">
-            <h4 class="timeline-title d-flex align-items-center">
-              <!-- https://github.com/hjnilsson/country-flags -->
-              <img class="mr-2" [src]=" flagRootPath + location.flagLabel + '.svg'">{{ location.country }}
-            </h4>
-            <p class="mb-0">
-              <small class="text-muted">
-                <i class="zmdi zmdi-calendar-alt mr-2"></i>
-                <span>{{ location.date }}</span>
-                <i class="zmdi zmdi-chevron-right mx-2"></i>
-                <span>{{ location.duration }}</span>
-              </small>
-            </p>
-          </div>
-          <p *ngIf="location.state !== 'future'">{{ location.text }}</p>
+      <div class="row mb-3 justify-content-flex-start justify-content-sm-center">
+
+        <!-- Left locations column -->
+        <div class="d-none col-5 d-sm-flex">
+          <app-location *ngIf="location.state !== 'future'" class="ml-auto flex-grow-1" [location]="location"
+            [direction]="'right'"></app-location>
         </div>
+
+        <!-- Badge timeline -->
+        <div class="col-sm-auto d-flex align-items-center justify-content-center timeline-bagde-container">
+          <i *ngIf="location.state === 'future'" class="text-secondary zmdi zmdi-circle-o"></i>
+          <i *ngIf="location.state === 'current'" class="text-info zmdi zmdi-gps-dot"></i>
+          <i *ngIf="location.state === 'past'" class="text-info zmdi zmdi-dot-circle"></i>
+        </div>
+
+        <!-- Right locations column -->
+        <div class="col-10 col-sm-5">
+          <app-location class="mr-auto" [ngClass]="{'d-sm-none': location.state !== 'future'}" [location]="location"
+            [direction]="'left'"></app-location>
+        </div>
+
       </div>
     </li>
   </ul>
-  <a class="btn btn-outline-primary button-icon-primary mb-3" *ngIf="locations.length > collapseFutureLocationIndex + 1" (click)="isFutureLocationsCollapsed = !isFutureLocationsCollapsed">
+
+  <!-- See more button -->
+  <a class="btn btn-outline-primary button-icon-primary mb-3" *ngIf="locations.length > collapseFutureLocationIndex + 1"
+    (click)="isFutureLocationsCollapsed = !isFutureLocationsCollapsed">
     <span *ngIf="isFutureLocationsCollapsed" class="">Voir prochains pays</span>
     <span *ngIf="!isFutureLocationsCollapsed" class="">Réduire</span>
   </a>
