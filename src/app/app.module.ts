@@ -15,7 +15,7 @@ import { MapComponent } from './map/map.component';
 import { FlyingMapComponent } from './flying-map/flying-map.component';
 import { JourneyComponent } from './journey/journey.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
-import { TileComponent } from './common/tile/tile.component';
+import { TileComponent } from './home/tile/tile.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { LocationComponent } from './timeline/location/location.component';
 
