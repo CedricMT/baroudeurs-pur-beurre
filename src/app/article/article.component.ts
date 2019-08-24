@@ -15,12 +15,15 @@ export class ArticleComponent implements OnInit {
   @Input() title: string;
   @Input() number: number;
   @Input() text: string;
-  @Input() images: Array<string>;
+  @Input() imgNb: number;
+  @Input() imgDirLabel: string;
   @Input() comments: Array<string>;
 
   isCommentsCollapsed = true;
   isNewCommentCollapsed = true;
   isOverviewMode = true;
+
+  imagesPath: string[] = [];
 
   commentForm: FormGroup;
 
@@ -30,6 +33,10 @@ export class ArticleComponent implements OnInit {
     private db: DbService) { }
 
   ngOnInit(): void {
+    // Create images path array
+    this.imagesPath = Array.from({ length: this.imgNb }, (v, i) => this.imgDirLabel + '/' + (i + 1) + '.jpg');
+    console.log(this.imagesPath);
+
     this.commentForm = this.fb.group({
       author: ['', Validators.required],
       text: ['', Validators.required]

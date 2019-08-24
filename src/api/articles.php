@@ -14,7 +14,8 @@ if ($result = mysqli_query($con, $sql)) {
     $articles[$cr]['id'] = $row['id'];
     $articles[$cr]['title'] = $row['title'];
     $articles[$cr]['text'] = $row['text'];
-    $articles[$cr]['images'] = unserialize($row['images']);
+    $articles[$cr]['imgNb'] = $row['img_nb'];
+    $articles[$cr]['imgDirLabel'] = $row['img_dir_label'];
     $articles[$cr]['comments'] = [];
     $cr++;
   }

@@ -3,16 +3,12 @@
 </h2>
 <div class="card mb-5">
   <div class="card-body">
-    <ngb-carousel class="pb-4" *ngIf="images">
-      <ng-template ngbSlide *ngFor="let imageId of images">
+    <ngb-carousel class="pb-4" *ngIf="imagesPath.length > 0">
+      <ng-template ngbSlide *ngFor="let imagePath of imagesPath">
         <div class="image-container">
           <div class="image-sub-container d-flex justify-content-center bg-dark">
-            <img [src]="'assets/pictures/' + imageId + '.jpg'" alt="Random slide">
+            <img [src]="'assets/pictures/' + imagePath" alt="Random slide">
           </div>
-        </div>
-        <div class="carousel-caption">
-          <!-- <h3>Slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
         </div>
       </ng-template>
     </ngb-carousel>
