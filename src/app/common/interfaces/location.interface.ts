@@ -5,4 +5,5 @@ export interface Location {
     duration: string;
     country: string;
     flagLabel: string;
+    countryCode: string;
 }

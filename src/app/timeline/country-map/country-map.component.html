@@ -1,0 +1,4 @@
+<div id="chartdiv"></div>
+<div id="hiddenchartdiv"></div>
+<input *ngIf="locations.length > 0" type="range" class="custom-range" min="0" [max]="locations.length - 1" [value]="locations.length - 1"
+  step="1" (change)="changeCountry($event)">

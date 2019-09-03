@@ -1,0 +1,14 @@
+#chartdiv {
+  width: 100%;
+  max-width:100%;
+  height: 500px;
+}
+
+#hiddenchartdiv{
+  width: 100%;
+  max-width:100%;
+  height: 500px;
+  visibility:hidden;
+  position:absolute;
+  top:0px;
+}

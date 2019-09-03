@@ -3,9 +3,9 @@
 
 
 "@amcharts/amcharts4-geodata@^4.0.24":
-  version "4.0.24"
-  resolved "https://registry.yarnpkg.com/@amcharts/amcharts4-geodata/-/amcharts4-geodata-4.0.24.tgz#07423db434ff266aca9affd6f0d063d95112e5bd"
-  integrity sha512-U/CIE8BgLi+F8tcgINmuBMC2HRtOWc1di4YrBUhXO/Oc1GAh+V0E1cSLgdaEBqXN3CiWKWTotXn41kNzBC5v0Q==
+  version "4.1.7"
+  resolved "https://registry.yarnpkg.com/@amcharts/amcharts4-geodata/-/amcharts4-geodata-4.1.7.tgz#f623b8da6d9b3a97c2433fc2e64dce5c83b5cc57"
+  integrity sha512-GcgwTx/wqoLvdTwgabwSH4GUgyGx5Flbjp0rfnPBN6yaXQ7h2uTeyYEZ2X59AW4ZQnUMxc2Ld93pcOfaF36gcA==
 
 "@amcharts/amcharts4@^4.0.10":
   version "4.0.10"
@@ -1188,9 +1188,9 @@ bonjour@^3.5.0:
     multicast-dns-service-types "^1.1.0"
 
 bootstrap@^4.0.0:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.1.3.tgz#0eb371af2c8448e8c210411d0cb824a6409a12be"
-  integrity sha512-rDFIzgXcof0jDyjNosjv4Sno77X4KuPeFxG2XZZv1/Kc8DRVGVADdoQyyOVDwPqL36DDmtCQbrpMCqvpPLJQ0w==
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
+  integrity sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag==
 
 brace-expansion@^1.1.7:
   version "1.1.11"

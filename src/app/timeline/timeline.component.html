@@ -2,6 +2,21 @@
   <h1 class="mb-4 mr-auto mr-md-none">Où en Sommes Nous ?</h1>
 </header>
 
+<div class="row">
+  <section class="col-xl-10 mx-auto py-5 px-2 px-md-4 px-lg-5 d-flex flex-column">
+    <h2>
+      <span>Pays visités</span>
+    </h2>
+    <div class="card mb-5">
+      <div class="card-body">
+        <div class="mb-3">
+          <app-country-map *ngIf="locations.length > 0" [locations]="locations"></app-country-map>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
 <!-- https://bootsnipp.com/snippets/OzQj -->
 <div class="container-fluid d-flex flex-column align-items-center">
 

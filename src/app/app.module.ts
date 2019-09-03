@@ -18,6 +18,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { TileComponent } from './home/tile/tile.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { LocationComponent } from './timeline/location/location.component';
+import { CountryMapComponent } from './timeline/country-map/country-map.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LocationComponent } from './timeline/location/location.component';
     SideNavComponent,
     TileComponent,
     TimelineComponent,
-    LocationComponent
+    LocationComponent,
+    CountryMapComponent
   ],
   imports: [
     BrowserModule,
