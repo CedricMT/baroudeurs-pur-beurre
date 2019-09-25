@@ -5,7 +5,7 @@
 require 'connect.php';
     
 $comments = [];
-$sql = "SELECT * FROM comment";
+$sql = "SELECT * FROM comments";
 
 if($result = mysqli_query($con,$sql))
 {

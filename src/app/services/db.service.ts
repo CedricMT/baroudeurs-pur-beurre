@@ -6,7 +6,6 @@ import { map, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 import { Comment } from '@classes/comment';
-import { Article } from '@interfaces/article.interface';
 
 @Injectable({
   providedIn: 'root'

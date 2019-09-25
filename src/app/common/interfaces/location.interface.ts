@@ -1,9 +1,11 @@
 export interface Location {
-    id: number;
-    date: string;
-    state: string;
-    duration: string;
-    country: string;
-    flagLabel: string;
-    countryCode: string;
+  id: number;
+  label: string;
+  gpsCoordinates: string;
+  date: string;
+  duration: string;
+  name: string;
+  countryCode: string;
+  flagLabel: string;
+  text: string;
 }

@@ -8,7 +8,7 @@ import am4geodata_worldHigh from "@amcharts/amcharts4-geodata/worldHigh";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 // Interfaces
-import { Location } from '@interfaces/location.interface';
+import { Country } from '@interfaces/country.interface';
 
 am4core.useTheme(am4themes_animated);
 
@@ -18,7 +18,7 @@ am4core.useTheme(am4themes_animated);
   styleUrls: ['./country-map.component.scss']
 })
 export class CountryMapComponent {
-  @Input() locations: Location[];
+  @Input() countries: Country[];
 
   private map: am4maps.MapChart;
   private map1: am4maps.MapChart;
@@ -39,7 +39,7 @@ export class CountryMapComponent {
   ngAfterViewInit() {
     this.zone.runOutsideAngular(() => {
 
-      this.currentIndex = this.locations.length - 1;
+      this.currentIndex = this.countries.length - 1;
       
       // Create charts
       this.map = am4core.create("chartdiv", am4maps.MapChart);
@@ -72,7 +72,7 @@ export class CountryMapComponent {
       // Initiate polygonSeries for map
       this.polygonSeries = this.map.series.push(new am4maps.MapPolygonSeries());
       this.polygonSeries.useGeodata = true;
-      this.polygonSeries.include = [this.locations[this.locations.length - 1].countryCode];
+      this.polygonSeries.include = [this.countries[this.countries.length - 1].countryCode];
       this.polygonSeries.mapPolygons.template.fill = am4core.color(this.getColorFromTheme('primary'));
 
       // Initiate map
@@ -82,7 +82,7 @@ export class CountryMapComponent {
       // Initiate polygonSeries for map1
       this.polygonSeries1 = this.map1.series.push(new am4maps.MapPolygonSeries());
       this.polygonSeries1.useGeodata = true;
-      this.polygonSeries1.include = [this.locations[this.locations.length - 1].countryCode];
+      this.polygonSeries1.include = [this.countries[this.countries.length - 1].countryCode];
 
       // Set country label
       this.label = this.map.chartContainer.createChild(am4core.Label);
@@ -91,7 +91,7 @@ export class CountryMapComponent {
       this.label.fill = am4core.color(this.getColorFromTheme('secondary'));
       this.label.fontSize = 35;
       this.label.fontWeight = "bold";
-      this.label.text = this.locations[this.locations.length - 1].country;
+      this.label.text = this.countries[this.countries.length - 1].name;
       this.label.fillOpacity = 0.2;
     });
   }
@@ -116,7 +116,7 @@ export class CountryMapComponent {
       this.polygonSeries1.dispose();
       this.polygonSeries1 = this.map1.series.push(new am4maps.MapPolygonSeries());
       this.polygonSeries1.useGeodata = true;
-      this.polygonSeries1.include = [this.locations[countryIndex].countryCode];
+      this.polygonSeries1.include = [this.countries[countryIndex].countryCode];
 
       // Update curretIndex
       this.currentIndex = countryIndex;
@@ -141,7 +141,7 @@ export class CountryMapComponent {
 
           // Trigger label animation once morphing done
           animation.events.once("animationended", () => {
-            this.label.text = this.locations[countryIndex].country;
+            this.label.text = this.countries[countryIndex].name;
             this.label.y = -50;
             this.label.animate({ property: "y", to: 200 }, 300, am4core.ease.quadOut);
           })

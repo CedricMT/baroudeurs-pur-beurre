@@ -6,7 +6,7 @@ require 'connect.php';
 require 'json_response.php';
 
 $articles = [];
-$sql = "SELECT * FROM article";
+$sql = "SELECT * FROM articles";
 
 if ($result = mysqli_query($con, $sql)) {
   $cr = 0;

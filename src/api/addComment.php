@@ -18,7 +18,7 @@ if (!array_key_exists('articleId', $requestArgs)
   http_response_code(400, "Invalid parameters");
 } 
 
-$sql = "INSERT INTO `comment`(`article_id`, `text`, `author`) VALUES ("
+$sql = "INSERT INTO `comments`(`article_id`, `text`, `author`) VALUES ("
  . "'" . $requestArgs['articleId'] . "', "
  . "'" . addslashes($requestArgs['text']) . "', "
  . "'" . addslashes($requestArgs['author']) . "');";

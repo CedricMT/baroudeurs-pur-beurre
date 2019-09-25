@@ -10,7 +10,7 @@
     <div class="card mb-5">
       <div class="card-body">
         <div class="mb-3">
-          <app-country-map *ngIf="locations.length > 0" [locations]="locations"></app-country-map>
+          <app-country-map *ngIf="visitedCountries.length > 0" [countries]="visitedCountries"></app-country-map>
         </div>
       </div>
     </div>
@@ -18,40 +18,40 @@
 </div>
 
 <!-- https://bootsnipp.com/snippets/OzQj -->
-<div class="container-fluid d-flex flex-column align-items-center">
+<!-- <div class="container-fluid d-flex flex-column align-items-center">
 
   <ul class="timeline container">
     <li *ngFor="let location of locations; index as i" [ngClass]="{'timeline-inverted': location.state === 'future'}"
       [ngbCollapse]="isFutureLocationsCollapsed && (i > collapseFutureLocationIndex)">
-      <div class="row mb-3 justify-content-flex-start justify-content-sm-center">
+      <div class="row mb-3 justify-content-flex-start justify-content-sm-center"> -->
 
         <!-- Left locations column -->
-        <div class="d-none col-5 d-sm-flex">
+        <!-- <div class="d-none col-5 d-sm-flex">
           <app-location *ngIf="location.state !== 'future'" class="ml-auto flex-grow-1" [location]="location"
             [direction]="'right'"></app-location>
-        </div>
+        </div> -->
 
         <!-- Badge timeline -->
-        <div class="col-sm-auto d-flex align-items-center justify-content-center timeline-bagde-container">
+        <!-- <div class="col-sm-auto d-flex align-items-center justify-content-center timeline-bagde-container">
           <i *ngIf="location.state === 'future'" class="text-secondary zmdi zmdi-circle-o"></i>
           <i *ngIf="location.state === 'current'" class="text-info zmdi zmdi-gps-dot"></i>
           <i *ngIf="location.state === 'past'" class="text-info zmdi zmdi-dot-circle"></i>
-        </div>
+        </div> -->
 
         <!-- Right locations column -->
-        <div class="col-10 col-sm-5">
+        <!-- <div class="col-10 col-sm-5">
           <app-location class="mr-auto" [ngClass]="{'d-sm-none': location.state !== 'future'}" [location]="location"
             [direction]="'left'"></app-location>
-        </div>
+        </div> -->
 
-      </div>
+      <!-- </div>
     </li>
-  </ul>
+  </ul> -->
 
   <!-- See more button -->
-  <a class="btn btn-outline-primary button-icon-primary mb-3" *ngIf="locations.length > collapseFutureLocationIndex + 1"
+  <!-- <a class="btn btn-outline-primary button-icon-primary mb-3" *ngIf="locations.length > collapseFutureLocationIndex + 1"
     (click)="isFutureLocationsCollapsed = !isFutureLocationsCollapsed">
     <span *ngIf="isFutureLocationsCollapsed" class="">Voir prochains pays</span>
     <span *ngIf="!isFutureLocationsCollapsed" class="">Réduire</span>
   </a>
-</div>
+</div> -->
