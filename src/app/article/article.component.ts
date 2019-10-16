@@ -58,4 +58,15 @@ export class ArticleComponent implements OnInit {
     // Collapse new comment form
     this.isNewCommentCollapsed = true;
   }
+
+  HandleOverviewButton(id) {
+    // Go to the begining of article
+    if (!this.isOverviewMode) {
+      location.href = '/flow#article-' + id;
+      console.log('ok test');
+    }
+
+    // Toggle overview mode
+    this.isOverviewMode = !this.isOverviewMode
+  }
 }
