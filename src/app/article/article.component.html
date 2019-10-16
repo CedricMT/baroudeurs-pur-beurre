@@ -6,7 +6,7 @@
     <ngb-carousel class="pb-4" *ngIf="imagesPath.length > 0">
       <ng-template ngbSlide *ngFor="let imagePath of imagesPath">
         <div class="image-container">
-          <div class="image-sub-container d-flex justify-content-center bg-dark">
+          <div class="image-sub-container d-flex justify-content-center">
             <img [src]="'assets/pictures/' + imagePath" alt="Random slide">
           </div>
         </div>
