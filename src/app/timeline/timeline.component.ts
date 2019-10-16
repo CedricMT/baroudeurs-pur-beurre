@@ -18,6 +18,8 @@ export class TimelineComponent implements OnInit {
   public isFutureLocationsCollapsed = true;
   public collapseFutureLocationIndex = 0;
 
+  public flagRootPath = 'assets/images/flags/';
+
   constructor(private data: DataService) { }
 
   ngOnInit() {
@@ -31,7 +33,7 @@ export class TimelineComponent implements OnInit {
   private subscribeLocations(): void {
     this.locationsSubscription = this.data.getLocationsAsObservable().subscribe((locations: Location[]) => {
       // Update locations and collapseFutureLocationIndex
-      this.visitedCountries = this.organizeLocationsByCountry(locations);
+      this.visitedCountries = this.organizeLocationsByCountry(locations).reverse();
     });
   };
 

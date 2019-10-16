@@ -17,7 +17,6 @@ import { JourneyComponent } from './journey/journey.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { TileComponent } from './home/tile/tile.component';
 import { TimelineComponent } from './timeline/timeline.component';
-import { LocationComponent } from './timeline/location/location.component';
 import { CountryMapComponent } from './timeline/country-map/country-map.component';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { CountryMapComponent } from './timeline/country-map/country-map.componen
     SideNavComponent,
     TileComponent,
     TimelineComponent,
-    LocationComponent,
     CountryMapComponent
   ],
   imports: [
