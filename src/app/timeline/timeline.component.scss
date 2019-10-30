@@ -193,3 +193,10 @@
     margin-top: 0px;
   }
 }
+
+.clickable {
+  cursor: pointer;
+  :hover {
+    filter: opacity(50%);
+  }
+}

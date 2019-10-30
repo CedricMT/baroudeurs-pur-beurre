@@ -3,13 +3,13 @@
 </header>
 
 <div class="container d-flex flex-column align-items-center">
-
   <ul class="timeline">
     <li *ngFor="let country of visitedCountries; index as i" [ngClass]="{'timeline-inverted': i % 2 === 0 }">
       <div class="timeline-badge">
         <i class="text-info zmdi zmdi-dot-circle"></i>
       </div>
-      <div class="card  timeline-panel">
+
+      <div class="card timeline-panel">
         <div class="card-body">
           <div class="card-title">
             <h4 class="timeline-title d-flex align-items-center">
@@ -28,7 +28,9 @@
             </p>
           </div>
 
-          <app-country-map [country]="country"></app-country-map>
+          <div class="clickable" (click)="open(country)">
+            <app-country-map [country]="country"></app-country-map>
+          </div>
         </div>
       </div>
     </li>

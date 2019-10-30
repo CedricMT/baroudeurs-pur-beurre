@@ -18,6 +18,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { TileComponent } from './home/tile/tile.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { CountryMapComponent } from './timeline/country-map/country-map.component';
+import { ModalCountryMapComponent } from './timeline/modal-country-map/modal-country-map.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CountryMapComponent } from './timeline/country-map/country-map.componen
     SideNavComponent,
     TileComponent,
     TimelineComponent,
-    CountryMapComponent
+    CountryMapComponent,
+    ModalCountryMapComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,10 @@ import { CountryMapComponent } from './timeline/country-map/country-map.componen
     NgbModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    CountryMapComponent,
+    ModalCountryMapComponent
+  ]
 })
 export class AppModule { }

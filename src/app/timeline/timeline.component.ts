@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DataService } from '@services/data.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Country } from '@interfaces/country.interface';
 import { Location } from '@interfaces/location.interface';
+import { ModalCountryMapComponent } from './modal-country-map/modal-country-map.component';
 
 @Component({
   selector: 'app-timeline',
@@ -20,7 +22,11 @@ export class TimelineComponent implements OnInit {
 
   public flagRootPath = 'assets/images/flags/';
 
-  constructor(private data: DataService) { }
+  public closeResult: string;
+
+  constructor(
+    private data: DataService,
+    private modalService: NgbModal) { }
 
   ngOnInit() {
     // Subscribe to data
@@ -69,6 +75,16 @@ export class TimelineComponent implements OnInit {
     });
 
     return visitedCountries;
+  }
+
+  public open(country) {
+    const options = {
+      centered: true,
+      size: 'xl' as 'lg' // Compiler does not accept 'xl'
+    };
+    const modalRef = this.modalService.open(ModalCountryMapComponent, options);
+    let instance = modalRef.componentInstance;
+    instance.country = country;
   }
 
   // Unsubscribe to subscriptions
