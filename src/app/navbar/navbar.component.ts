@@ -12,7 +12,8 @@ export class NavbarComponent {
     { label: 'Accueil', routerLink: 'home' },
     { label: 'Nos Articles', routerLink: 'flow' },
     { label: 'Le Périple', routerLink: 'journey' },
-    { label: 'Où en Sommes Nous ?', routerLink: 'timeline' }
+    { label: 'Où en Sommes Nous ?', routerLink: 'timeline' },
+    { label: 'Contact', routerLink: 'contact' }
   ];
 
   constructor() { }

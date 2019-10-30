@@ -8,22 +8,25 @@
       </div>
       <div class="col-lg-8 align-self-baseline">
         <p class="text-white-75 font-weight-light mb-5">{{ description }}</p>
-        <a class="btn btn-outline-light btn-xl js-scroll-trigger" href="/home#about">C'est parti !</a>
+        <a class="btn btn-outline-light btn-xl js-scroll-trigger px-5" href="/home#about">
+          <i class="zmdi zmdi-chevron-down zmdi-hc-3x"></i>
+        </a>
       </div>
     </div>
   </div>
 </header>
 
 <!-- Content -->
-<section id="about" class="content m-0 bg-light tile-container text-center py-md-5 py-4">
+<section id="about" class="content m-0 bg-light text-center py-md-5 py-4">
   <div class="w-100">
     <h2 class="text-uppercase">Bonne visite</h2>
     <hr class="divider my-4">
   </div>
 
   <div class="row m-0 px-3">
-    <app-tile *ngFor="let tile of tiles, last as isLast" class="col-12 col-md-4 p-0" [ngClass]="{ 'border-separated': !isLast }"
-      [title]="tile.title" [iconUrl]="tile.iconUrl" [text]="tile.text" [button]="tile.button">
+    <app-tile *ngFor="let tile of tiles, last as isLast" class="col-12 col-md p-0" [ngClass]="{ 'border-separated': !isLast }"
+      [title]="tile.title" [iconUrl]="tile.iconUrl" [button]="tile.button">
+      <p class="text-justify">{{ tile.text }}</p>
     </app-tile>
   </div>
 </section>

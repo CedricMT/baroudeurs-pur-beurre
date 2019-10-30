@@ -35,7 +35,6 @@ export class ArticleComponent implements OnInit {
   ngOnInit(): void {
     // Create images path array
     this.imagesPath = Array.from({ length: this.imgNb }, (v, i) => this.imgDirLabel + '/' + (i + 1) + '.jpg');
-    console.log(this.imagesPath);
 
     this.commentForm = this.fb.group({
       author: ['', Validators.required],
@@ -47,7 +46,6 @@ export class ArticleComponent implements OnInit {
     const comment = Object.assign({ articleId: this.articleId }, this.commentForm.value);
     this.db.addComment(comment).subscribe(
       (results: any) => {
-        console.log(results);
         this.data.updateComments();
       },
       (err) => {
@@ -63,7 +61,6 @@ export class ArticleComponent implements OnInit {
     // Go to the begining of article
     if (!this.isOverviewMode) {
       location.href = '/flow#article-' + id;
-      console.log('ok test');
     }
 
     // Toggle overview mode

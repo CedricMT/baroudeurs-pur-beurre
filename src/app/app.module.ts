@@ -19,6 +19,7 @@ import { TileComponent } from './home/tile/tile.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { CountryMapComponent } from './timeline/country-map/country-map.component';
 import { ModalCountryMapComponent } from './timeline/modal-country-map/modal-country-map.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ModalCountryMapComponent } from './timeline/modal-country-map/modal-cou
     TileComponent,
     TimelineComponent,
     CountryMapComponent,
-    ModalCountryMapComponent
+    ModalCountryMapComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

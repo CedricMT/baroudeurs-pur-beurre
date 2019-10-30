@@ -1,8 +1,10 @@
-<div class="px-0 py-4 p-md-3 p-lg-4 bg-light">
+<div class="px-0 py-4 p-md-3 p-lg-4 bg-light m-2">
   <div class="text-center">
     <img class="rounded-circle mb-4" [src]="iconUrl">
   </div>
   <h3>{{ title }}</h3>
-  <p class="text-justify">{{ text }}</p>
-  <a class="btn btn-outline-primary" [routerLink]="button.routerLink">{{ button.label }}</a>
+
+  <ng-content></ng-content>
+
+  <a *ngIf="button" class="btn btn-outline-primary" [routerLink]="button.routerLink">{{ button.label }}</a>
 </div>
