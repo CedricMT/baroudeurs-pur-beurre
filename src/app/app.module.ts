@@ -20,6 +20,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { CountryMapComponent } from './timeline/country-map/country-map.component';
 import { ModalCountryMapComponent } from './timeline/modal-country-map/modal-country-map.component';
 import { ContactComponent } from './contact/contact.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ContactComponent } from './contact/contact.component';
     TimelineComponent,
     CountryMapComponent,
     ModalCountryMapComponent,
-    ContactComponent
+    ContactComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
