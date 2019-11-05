@@ -12,6 +12,11 @@
         </div>
       </ng-template>
     </ngb-carousel>
+
+    <button class="btn btn-outline-primary button-icon-primary" (click)="open('#' + number + ' ' + title, imagesPath)">
+      Plein écran
+    </button>
+
     <p class="text-justify" [ngClass]="{ 'overview': isOverviewMode }" [innerHTML]="text"></p>
 
     <div *ngIf="isOverviewMode" class="gradient-layer mb-3"></div>

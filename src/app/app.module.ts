@@ -21,6 +21,7 @@ import { CountryMapComponent } from './timeline/country-map/country-map.componen
 import { ModalCountryMapComponent } from './timeline/modal-country-map/modal-country-map.component';
 import { ContactComponent } from './contact/contact.component';
 import { HeaderComponent } from './header/header.component';
+import { ModalCarouselComponent } from './article/modal-carousel/modal-carousel.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HeaderComponent } from './header/header.component';
     CountryMapComponent,
     ModalCountryMapComponent,
     ContactComponent,
-    HeaderComponent
+    HeaderComponent,
+    ModalCarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { HeaderComponent } from './header/header.component';
   bootstrap: [AppComponent],
   entryComponents: [
     CountryMapComponent,
-    ModalCountryMapComponent
+    ModalCountryMapComponent,
+    ModalCarouselComponent
   ]
 })
 export class AppModule { }

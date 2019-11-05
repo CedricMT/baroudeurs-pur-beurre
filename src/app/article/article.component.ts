@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { DbService } from '@services/db.service';
 import { DataService } from '@services/data.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { ModalCarouselComponent } from './modal-carousel/modal-carousel.component';
 
 @Component({
   selector: 'app-article',
@@ -30,7 +33,8 @@ export class ArticleComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private data: DataService,
-    private db: DbService) { }
+    private db: DbService,
+    private modalService: NgbModal) { }
 
   ngOnInit(): void {
     // Create images path array
@@ -40,6 +44,17 @@ export class ArticleComponent implements OnInit {
       author: ['', Validators.required],
       text: ['', Validators.required]
     });
+  }
+
+  public open(title, imagesPath) {
+    const options = {
+      centered: true,
+      size: 'xl' as 'lg' // Compiler does not accept 'xl'
+    };
+    const modalRef = this.modalService.open(ModalCarouselComponent, options);
+    let instance = modalRef.componentInstance;
+    instance.title = title;
+    instance.imagesPath = imagesPath;
   }
 
   addComment() {
