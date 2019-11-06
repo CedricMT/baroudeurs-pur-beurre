@@ -1,6 +1,6 @@
 <app-header title="Contact"></app-header>
 
-<section id="about" class="content m-0 bg-light tile-container text-center py-md-5 py-4">
+<section id="about" class="content m-0 tile-container text-center py-md-5 py-4">
   <div class="row m-0 px-3">
     <app-tile *ngFor="let tile of tiles, last as isLast" class="col-12 col-md p-0" [ngClass]="{ 'border-separated': !isLast }"
       [title]="tile.title" [iconUrl]="tile.iconUrl">
