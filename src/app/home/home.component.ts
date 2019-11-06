@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
     {
       title: 'Nos Articles',
       iconUrl: 'assets/images/camera-paper.svg',
-      text: ['Envie d\'avoir quelques nouvelles des baroudeurs, connaitre les anectodes, les rencontres ou les galères du voyage, c\'est par ici ...'
-        + '  Et bien sûr tous les articles sont accompagnés de photos :)'],
+      text: ['Envie d\'avoir quelques nouvelles des baroudeurs ? Lire nos aventures et voir nos photos ?'
+      ],
       button: {
         label: 'Voir les articles',
         routerLink: '/flow'
@@ -28,26 +28,26 @@ export class HomeComponent implements OnInit {
     },
     {
       title: 'Le Périple',
-      iconUrl: 'assets/images/shoes.svg',
-      text: 'Traversée des trois continents de l\'asie à l\'amérique latine, en passant par l\'afrique, pour une durée de 18 mois ou plus si affinité ...',
+      iconUrl: 'assets/images/globe.svg',
+      text: ' Pour avoir une idée plus précise du parcours prévu, c\'est par ici !  ',
       button: {
         label: 'Découvrir le périple',
         routerLink: '/journey'
       }
     },
     {
-      title: 'Où en Sommes Nous ?',
-      iconUrl: 'assets/images/globe.svg',
-      text: ['Un peu perdu dans les dates et les destinations ? Pour savoir où nous sommes rendu c\'est par là !'],
+      title: 'Pays visités',
+      iconUrl: 'assets/images/shoes-no-plane.svg',
+      text: ['Un peu perdu dans les dates et les destinations ? On vous montre plus précisément où nous sommes passés et où on en est !'],
       button: {
-        label: 'Nous trouver',
+        label: 'Suivre nos visites',
         routerLink: '/timeline'
       }
     },
     {
       title: 'Contact',
       iconUrl: 'assets/images/pigeon.svg',
-      text: ['Nous contacter'],
+      text: ['Besoin d\'infos supplémentaires ou envie de nous envoyer un petit mot mais vous n\'avez pas nos contacts ?' ],
       button: {
         label: 'Nous contacter',
         routerLink: '/contact'
