@@ -52,9 +52,9 @@ export class TimelineComponent implements OnInit {
     // Build visitedCountries array
     const visitedCountries: Country[] = [];
     sortedLocations.forEach((location: Location) => {
-      if (visitedCountries.length === 0 || !visitedCountries.find((visitedCountry: Country) => visitedCountry.id === location.id)) {
+      if (visitedCountries.length === 0 || !visitedCountries.find((visitedCountry: Country) => visitedCountry.id === location.countryId)) {
         visitedCountries.push({
-          id: location.id,
+          id: location.countryId,
           date: location.date,
           duration: location.duration,
           name: location.name,

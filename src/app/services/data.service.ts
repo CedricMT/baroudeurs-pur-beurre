@@ -6,11 +6,13 @@ import { DbService } from '@services/db.service';
 import { Article } from '@interfaces/article.interface';
 import { Comment } from '@interfaces/comment.interface';
 import { Location } from '@interfaces/location.interface';
+import { Country } from '@interfaces/country.interface';
 
 @Injectable({ providedIn: 'root' })
 export class DataService {
   private articlesSubject = new Subject<Article[]>();
   private commentsSubject = new Subject<Comment[]>();
+  private countriesSubject = new Subject<Country[]>();
   private locationsSubject = new Subject<Location[]>();
 
   constructor(private db: DbService) { }
@@ -25,7 +27,7 @@ export class DataService {
     this.requestArticles().subscribe(
       (results: Article[]) => {
         console.log('Requesting articles success: ', results);
-        
+
         // Update subject
         this.articlesSubject.next(results.reverse());
       },
@@ -49,7 +51,7 @@ export class DataService {
     this.requestComments().subscribe(
       (results: Comment[]) => {
         console.log('Requesting comments success: ', results);
-        
+
         // Update subject
         this.commentsSubject.next(results.reverse());
       },
@@ -63,27 +65,51 @@ export class DataService {
     return this.db.getAll<Comment>('comments');
   }
 
-    // Locations
-    public getLocationsAsObservable(): Observable<Location[]> {
-      return this.locationsSubject.asObservable();
-    }
-  
-    public async updateLocations(): Promise<void> {
-      // Retrieve locations
-      this.requestLocations().subscribe(
-        (results: Location[]) => {
-          console.log('Requesting locations success: ', results);
-          
-          // Update subject
-          this.locationsSubject.next(results.reverse());
-        },
-        (err) => {
-          console.error('Error while requesting locations', err);
-        }
-      );
-    }
-  
-    private requestLocations(): Observable<Location[]> {
-      return this.db.getAll<Location>('locations');
-    }
+  // Countries
+  public getCountriesAsObservable(): Observable<Country[]> {
+    return this.countriesSubject.asObservable();
+  }
+
+  public async updateCountries(): Promise<void> {
+    // Retrieve Countries
+    this.requestCountries().subscribe(
+      (results: Country[]) => {
+        console.log('Requesting countries success: ', results);
+
+        // Update subject
+        this.countriesSubject.next(results.reverse());
+      },
+      (err) => {
+        console.error('Error while requesting countries', err);
+      }
+    );
+  }
+
+  private requestCountries(): Observable<Country[]> {
+    return this.db.getAll<Country>('countries');
+  }
+
+  // Locations
+  public getLocationsAsObservable(): Observable<Location[]> {
+    return this.locationsSubject.asObservable();
+  }
+
+  public async updateLocations(): Promise<void> {
+    // Retrieve locations
+    this.requestLocations().subscribe(
+      (results: Location[]) => {
+        console.log('Requesting locations success: ', results);
+
+        // Update subject
+        this.locationsSubject.next(results.reverse());
+      },
+      (err) => {
+        console.error('Error while requesting locations', err);
+      }
+    );
+  }
+
+  private requestLocations(): Observable<Location[]> {
+    return this.db.getAll<Location>('locations');
+  }
 }

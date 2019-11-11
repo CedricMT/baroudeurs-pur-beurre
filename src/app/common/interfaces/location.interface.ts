@@ -1,5 +1,6 @@
 export interface Location {
   id: number;
+  countryId: number;
   label: string;
   gpsCoordinates: string;
   date: string;
@@ -8,4 +9,6 @@ export interface Location {
   countryCode: string;
   flagLabel: string;
   text: string;
+  flightPoint: string;
+  flightDestinationId: string;
 }
