@@ -7,7 +7,6 @@ export interface Location {
   duration: string;
   name: string;
   countryCode: string;
-  flagLabel: string;
   text: string;
   flightPoint: string;
   flightDestinationId: string;

@@ -16,7 +16,6 @@ if ($result = mysqli_query($con, $sql)) {
     $countries[$cr]['state'] = $row['state'];
     $countries[$cr]['duration'] = $row['duration'];
     $countries[$cr]['country'] = $row['country'];
-    $countries[$cr]['flagLabel'] = $row['flagLabel'];
     $countries[$cr]['text'] = $row['text'];
     $cr++;
   }

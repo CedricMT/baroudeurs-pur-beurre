@@ -84,7 +84,6 @@ export class FlyingMapComponent implements OnInit {
           date: location.date,
           duration: location.duration,
           name: location.name,
-          flagLabel: location.flagLabel,
           text: location.text,
           countryCode: location.countryCode,
           places: []

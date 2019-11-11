@@ -12,7 +12,7 @@
           <div class="card-title">
             <h4 class="timeline-title d-flex align-items-center">
               <!-- https://github.com/hjnilsson/country-flags -->
-              <img class="mr-2" [src]="flagRootPath + country.flagLabel + '.svg'">{{ country.name }}
+              <img class="mr-2" [src]="flagRootPath + country.countryCode.toLowerCase() + '.svg'">{{ country.name }}
             </h4>
 
             <p class="mb-0">

@@ -6,7 +6,6 @@ export interface Country {
   duration: string;
   name: string;
   text: string;
-  flagLabel: string;
   countryCode: string;
   places: Place[];
 }

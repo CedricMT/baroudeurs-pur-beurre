@@ -1,7 +1,7 @@
 <div class="modal-header">
   <h4 class="title d-flex align-items-center">
     <!-- https://github.com/hjnilsson/country-flags -->
-    <img class="mr-2" [src]="flagRootPath + country.flagLabel + '.svg'">{{ country.name }}
+    <img class="mr-2" [src]="flagRootPath + country.countryCode.toLowerCase() + '.svg'">{{ country.name }}
   </h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
