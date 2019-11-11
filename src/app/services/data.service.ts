@@ -37,7 +37,7 @@ export class DataService {
     );
   }
 
-  private requestArticles(): Observable<Article[]> {
+  public requestArticles(): Observable<Article[]> {
     return this.db.getAll<Article>('articles');
   }
 
@@ -61,7 +61,7 @@ export class DataService {
     );
   }
 
-  private requestComments(): Observable<Comment[]> {
+  public requestComments(): Observable<Comment[]> {
     return this.db.getAll<Comment>('comments');
   }
 
@@ -85,7 +85,7 @@ export class DataService {
     );
   }
 
-  private requestCountries(): Observable<Country[]> {
+  public requestCountries(): Observable<Country[]> {
     return this.db.getAll<Country>('countries');
   }
 
@@ -109,7 +109,7 @@ export class DataService {
     );
   }
 
-  private requestLocations(): Observable<Location[]> {
+  public requestLocations(): Observable<Location[]> {
     return this.db.getAll<Location>('locations');
   }
 }

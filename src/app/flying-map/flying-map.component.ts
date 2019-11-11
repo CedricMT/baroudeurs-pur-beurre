@@ -5,13 +5,12 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
 import am4geodata_worldLow from '@amcharts/amcharts4-geodata/worldLow';
-import am4geodata_usaLow from "@amcharts/amcharts4-geodata/usaLow";
 
 // Interfaces
 import { DataService } from '@services/data.service';
-import { Subscription } from 'rxjs';
 import { Location } from '@interfaces/location.interface';
 import { Country } from '@interfaces/country.interface';
+import { Place } from '@interfaces/place.interface';
 
 @Component({
   selector: 'app-flying-map',
@@ -23,12 +22,6 @@ export class FlyingMapComponent implements OnInit {
   private map: am4maps.MapChart;
   private cities;
 
-  private locationsSubscription: Subscription;
-  private countriesSubscription: Subscription;
-
-  private locations: Location[] = [];
-  private countries: Country[] = [];
-
   public visitedCountries: Country[] = [];
   public plannedCountries: Country[] = [];
 
@@ -37,69 +30,39 @@ export class FlyingMapComponent implements OnInit {
     private data: DataService) { }
 
   ngOnInit() {
-    // Subscribe to data
-    this.subscribeLocations();
-    this.subscribeCountries();
-
-    // Update articles and associated comments
-    this.data.updateLocations();
-    this.data.updateCountries();
+    // Retrieve Countries and Locations
+    Promise.all([
+      this.data.requestCountries().toPromise(),
+      this.data.requestLocations().toPromise()
+    ])
+    .then((results => {
+      const countries = this.organizeLocationsByCountry(results[0], results[1]);
+      this.visitedCountries = countries.filter((country: Country) => country.date !== null);
+      this.plannedCountries = countries.filter((country: Country) => country.date === null);
+    }))
+    .catch((err) => {
+      console.error('Error while retrieving data from database.', err);
+    })
+    .then(() => {
+      this.initMap();
+    }).catch(err => {
+      console.error('Error while initiating map', err);
+    });
   }
 
-  private subscribeLocations(): void {
-    this.locationsSubscription = this.data.getLocationsAsObservable().subscribe((locations: Location[]) => {
-      // Update locations and visited countries
-      this.locations = locations;
-      // this.visitedCountries = this.organizeLocationsByCountry(locations).reverse();
+  private organizeLocationsByCountry(countries: Country[], locations: Location[]): Country[] {
+    countries.forEach((country: Country) => {
+      country.places = [];
 
-      // Init map with visited countries
-      this.initMap();
-    });
-  };
-
-  private subscribeCountries(): void {
-    this.countriesSubscription = this.data.getCountriesAsObservable().subscribe((countries: Country[]) => {
-      // Update countries
-      this.countries = countries;
-      this.plannedCountries = countries.filter((country: Country) => country.date === null);
-      this.visitedCountries = countries.filter((country: Country) => country.date !== null);
-
-      // Init map with visited countries
-      this.initMap();
-    });
-  };
-
-  private organizeLocationsByCountry(locations: Location[]): Country[] {
-    // Sort locations
-    const sortedLocations = locations.sort((firstLocation, secondLocation) => {
-      return firstLocation.id >= secondLocation.id ? 1 : -1;
+      // Add locations to country
+      locations.forEach((location: Location) => {
+        if (location.countryId === country.id) {
+          country.places.push(location);
+        }
+      });
     });
 
-    // Build visitedCountries array
-    const visitedCountries: Country[] = [];
-    sortedLocations.forEach((location: Location) => {
-      if (visitedCountries.length === 0 || !visitedCountries.find((visitedCountry: Country) => visitedCountry.id === location.id)) {
-        visitedCountries.push({
-          id: location.id,
-          date: location.date,
-          duration: location.duration,
-          name: location.name,
-          text: location.text,
-          countryCode: location.countryCode,
-          places: []
-        });
-      }
-
-      // Add location
-      if (location.label !== null && location.gpsCoordinates !== null) {
-        visitedCountries[visitedCountries.length - 1].places.push({
-          label: location.label,
-          gpsCoordinates: location.gpsCoordinates
-        });
-      }
-    });
-
-    return visitedCountries;
+    return countries;
   }
 
   getColorFromTheme(colorName: string): string {
@@ -138,7 +101,7 @@ export class FlyingMapComponent implements OnInit {
         visitedCountriesSeries.fill = am4core.color(visitedCountriesColor);
 
         let visitedPolygonTemplate = visitedCountriesSeries.mapPolygons.template;
-        polygonTemplate.tooltipText = "{name}";
+        visitedPolygonTemplate.tooltipText = "{name}";
         visitedPolygonTemplate.fill = am4core.color(visitedCountriesColor);
         visitedPolygonTemplate.nonScalingStroke = true;
         visitedPolygonTemplate.fillOpacity = 0.8;
@@ -154,7 +117,7 @@ export class FlyingMapComponent implements OnInit {
         plannedCountriesSeries.fill = am4core.color(plannedCountriesColor);
 
         let plannedCountriesPolygonTemplate = plannedCountriesSeries.mapPolygons.template;
-        polygonTemplate.tooltipText = "{name}";
+        plannedCountriesPolygonTemplate.tooltipText = "{name}";
         plannedCountriesPolygonTemplate.fill = am4core.color(plannedCountriesColor);
         plannedCountriesPolygonTemplate.nonScalingStroke = true;
         plannedCountriesPolygonTemplate.fillOpacity = 0.8;
@@ -178,8 +141,8 @@ export class FlyingMapComponent implements OnInit {
       });
 
       // Create hover state and set alternative fill color
-      const hs = polygonTemplate.states.create('hover');
-      hs.properties.fill = am4core.color('#ffffff');
+      // const hs = polygonTemplate.states.create('hover');
+      // hs.properties.fill = am4core.color('#ffffff');
 
       // Add line bullets
       this.cities = map.series.push(new am4maps.MapImageSeries());
@@ -191,7 +154,15 @@ export class FlyingMapComponent implements OnInit {
       city.strokeWidth = 2;
       city.stroke = am4core.color('#fff');
 
-      const flightLocations = this.locations.filter((location: Location) => location.flightPoint === '1');
+      // Extract flightPoints
+      const flightLocations = [];
+      this.visitedCountries.forEach((visitedCountry: Country) => {
+        visitedCountry.places.forEach((place: Place) => {
+          if(place.flightPoint === '1') {
+            flightLocations.push(place);
+          }
+        });
+      });
 
       // Add cities and lines
       const createdCities = []
@@ -317,9 +288,6 @@ export class FlyingMapComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    // Unsubscribe to subscriptions
-    this.locationsSubscription.unsubscribe();
-
     this.zone.runOutsideAngular(() => {
       if (this.map) {
         this.map.dispose();
@@ -345,8 +313,4 @@ export class FlyingMapComponent implements OnInit {
 
     return line;
   }
-
 }
-
-
-

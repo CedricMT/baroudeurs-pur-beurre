@@ -29,51 +29,29 @@ export class TimelineComponent implements OnInit {
     private modalService: NgbModal) { }
 
   ngOnInit() {
-    // Subscribe to data
-    this.subscribeLocations();
-
-    // Update articles and associated comments
-    this.data.updateLocations();
+    // Retrieve Countries and Locations
+    Promise.all([
+      this.data.requestCountries().toPromise(),
+      this.data.requestLocations().toPromise()
+    ]).then((results => {
+      const countries = this.organizeLocationsByCountry(results[0], results[1]);
+      const visitedCountries = countries.filter((country: Country) => country.places.length > 0);
+      this.visitedCountries = visitedCountries.reverse();
+    }));
   }
 
-  private subscribeLocations(): void {
-    this.locationsSubscription = this.data.getLocationsAsObservable().subscribe((locations: Location[]) => {
-      // Update locations and collapseFutureLocationIndex
-      this.visitedCountries = this.organizeLocationsByCountry(locations).reverse();
-    });
-  };
+  private organizeLocationsByCountry(countries: Country[], locations: Location[]): Country[] {
+    countries.forEach((country: Country) => {
+      country.places = [];
 
-  private organizeLocationsByCountry(locations: Location[]): Country[] {
-    // Sort locations
-    const sortedLocations = locations.sort((firstLocation, secondLocation) => {
-      return firstLocation.id >= secondLocation.id ? 1 : -1;
+      locations.forEach((location: Location) => {
+        if (location.countryId === country.id) {
+          country.places.push(location);
+        }
+      });
     });
 
-    // Build visitedCountries array
-    const visitedCountries: Country[] = [];
-    sortedLocations.forEach((location: Location) => {
-      if (visitedCountries.length === 0 || !visitedCountries.find((visitedCountry: Country) => visitedCountry.id === location.countryId)) {
-        visitedCountries.push({
-          id: location.countryId,
-          date: location.date,
-          duration: location.duration,
-          name: location.name,
-          text: location.text,
-          countryCode: location.countryCode,
-          places: []
-        });
-      }
-
-      // Add location
-      if (location.label !== null && location.gpsCoordinates !== null) {
-        visitedCountries[visitedCountries.length - 1].places.push({
-          label: location.label,
-          gpsCoordinates: location.gpsCoordinates
-        });
-      }
-    });
-
-    return visitedCountries;
+    return countries;
   }
 
   public open(country) {
