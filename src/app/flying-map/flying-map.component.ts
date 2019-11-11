@@ -10,7 +10,6 @@ import am4geodata_worldLow from '@amcharts/amcharts4-geodata/worldLow';
 import { DataService } from '@services/data.service';
 import { Location } from '@interfaces/location.interface';
 import { Country } from '@interfaces/country.interface';
-import { Place } from '@interfaces/place.interface';
 
 @Component({
   selector: 'app-flying-map',
@@ -52,12 +51,12 @@ export class FlyingMapComponent implements OnInit {
 
   private organizeLocationsByCountry(countries: Country[], locations: Location[]): Country[] {
     countries.forEach((country: Country) => {
-      country.places = [];
+      country.locations = [];
 
       // Add locations to country
       locations.forEach((location: Location) => {
         if (location.countryId === country.id) {
-          country.places.push(location);
+          country.locations.push(location);
         }
       });
     });
@@ -157,9 +156,9 @@ export class FlyingMapComponent implements OnInit {
       // Extract flightPoints
       const flightLocations = [];
       this.visitedCountries.forEach((visitedCountry: Country) => {
-        visitedCountry.places.forEach((place: Place) => {
-          if(place.flightPoint === '1') {
-            flightLocations.push(place);
+        visitedCountry.locations.forEach((location: Location) => {
+          if(location.flightPoint === '1') {
+            flightLocations.push(location);
           }
         });
       });

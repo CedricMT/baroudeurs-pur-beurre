@@ -35,18 +35,18 @@ export class TimelineComponent implements OnInit {
       this.data.requestLocations().toPromise()
     ]).then((results => {
       const countries = this.organizeLocationsByCountry(results[0], results[1]);
-      const visitedCountries = countries.filter((country: Country) => country.places.length > 0);
+      const visitedCountries = countries.filter((country: Country) => country.locations.length > 0);
       this.visitedCountries = visitedCountries.reverse();
     }));
   }
 
   private organizeLocationsByCountry(countries: Country[], locations: Location[]): Country[] {
     countries.forEach((country: Country) => {
-      country.places = [];
+      country.locations = [];
 
       locations.forEach((location: Location) => {
         if (location.countryId === country.id) {
-          country.places.push(location);
+          country.locations.push(location);
         }
       });
     });

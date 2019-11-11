@@ -10,7 +10,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 // Interfaces
 import { Country } from '@interfaces/country.interface';
-import { Place } from '@interfaces/place.interface';
+import { Location } from '@interfaces/location.interface';
 
 am4core.useTheme(am4themes_animated);
 
@@ -113,14 +113,14 @@ export class CountryMapComponent implements OnInit {
       imageSeriesTemplate.propertyFields.latitude = "latitude";
       imageSeriesTemplate.propertyFields.longitude = "longitude";
 
-      // Add places
-      this.country.places.forEach((place: Place) => {
-        const coords: string[] = place.gpsCoordinates.split(',');
+      // Add locations
+      this.country.locations.forEach((location: Location) => {
+        const coords: string[] = location.gpsCoordinates.split(',');
 
         imageSeries.addData({
           longitude: Number(coords.pop()),
           latitude: Number(coords.pop()),
-          title: place.label
+          title: location.label
         });
       });
 

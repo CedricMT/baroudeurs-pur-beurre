@@ -1,13 +1,8 @@
 export interface Location {
-  id: number;
-  countryId: number;
+  id: number
   label: string;
+  countryId: number;
   gpsCoordinates: string;
-  date: string;
-  duration: string;
-  name: string;
-  countryCode: string;
-  text: string;
   flightPoint: string;
   flightDestinationId: string;
 }

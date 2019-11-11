@@ -1,4 +1,4 @@
-import { Place } from '@interfaces/place.interface';
+import { Location } from '@interfaces/location.interface';
 
 export interface Country {
   id: number;
@@ -7,5 +7,5 @@ export interface Country {
   name: string;
   text: string;
   countryCode: string;
-  places: Place[];
+  locations: Location[];
 }

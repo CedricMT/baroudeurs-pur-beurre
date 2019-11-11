@@ -16,6 +16,7 @@ function json_response($contentArray = [], $code = 200)
     $status = array(
         200 => '200 OK',
         400 => '400 Bad Request',
+        404 => '404 Not Found',
         422 => 'Unprocessable Entity',
         500 => '500 Internal Server Error'
         );
