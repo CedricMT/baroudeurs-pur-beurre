@@ -3,7 +3,7 @@
 </h2>
 <div class="card mb-5">
   <div class="card-body">
-    <ngb-carousel class="pb-4" *ngIf="imagesPath.length > 0">
+    <ngb-carousel class="mb-3" *ngIf="imagesPath.length > 0">
       <ng-template ngbSlide *ngFor="let imagePath of imagesPath">
         <div class="image-container">
           <div class="image-sub-container d-flex justify-content-center">
@@ -13,8 +13,8 @@
       </ng-template>
     </ngb-carousel>
 
-    <button class="btn btn-outline-primary button-icon-primary" (click)="open('#' + number + ' ' + title, imagesPath)">
-      Plein écran
+    <button class="btn btn-outline-primary button-icon-primary mb-2" (click)="open('#' + number + ' ' + title, imagesPath)">
+      <i class="zmdi zmdi-fullscreen mr-1"></i> Plein écran
     </button>
 
     <p class="text-justify" [ngClass]="{ 'overview': isOverviewMode }" [innerHTML]="text"></p>
