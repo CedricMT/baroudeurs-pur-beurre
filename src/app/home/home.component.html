@@ -24,9 +24,11 @@
   </div>
 
   <div class="row m-0 px-3">
-    <app-tile *ngFor="let tile of tiles, last as isLast" class="col-12 col-md p-0" [ngClass]="{ 'border-separated': !isLast }"
-      [title]="tile.title" [iconUrl]="tile.iconUrl" [button]="tile.button">
-      <p class="text-justify">{{ tile.text }}</p>
-    </app-tile>
+    <div *ngFor="let tile of tiles, last as isLast" class="col-12 col-md p-0">
+      <app-tile [title]="tile.title" [iconUrl]="tile.iconUrl" [button]="tile.button">
+        <p class="text-justify">{{ tile.text }}</p>
+      </app-tile>
+      <div [ngClass]="{ 'tile-divider': !isLast }" class="m-auto"></div>
+    </div>
   </div>
 </section>

@@ -74,14 +74,15 @@ section.content {
   flex-direction: column;
   justify-content: center;
 
-  .border-separated {
-    border-radius: 12.5%;
+  .tile-divider {
+    width: 75%;
+    height: 1px;
     border-bottom: theme-color("secondary") solid 1px;
   }
   @include media-breakpoint-up(md) {
     height: 100vh;
 
-    .border-separated {
+    .tile-divider {
       border: none;
     }
   }
