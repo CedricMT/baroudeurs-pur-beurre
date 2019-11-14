@@ -1,4 +1,4 @@
-<footer class="footer bg-light">
+<!-- <footer class="footer bg-light">
   <div class="container d-flex flex-row align-items-center p-3">
     <span class="">Auteur site web : Cédric MOUBRI-TOURNES</span>
     <div class="ml-auto">
@@ -11,9 +11,44 @@
         <li class="social-item px-3 py-2 border-left">
           <a [href]="links.linkedin" class="text-primary">
             <i class="zmdi zmdi-linkedin zmdi-hc-lg"></i>
-          </a></li>
+          </a>
+        </li>
       </ul>
     </div>
     <div class="clear"></div>
+  </div>
+</footer> -->
+
+<!-- Footer -->
+<footer class="page-footer font-small">
+  <div class="footer-copyright d-flex flex-column py-3 bg-primary">
+    <div class="row text-center d-flex justify-content-center pt-4 mx-md-5">
+      <div class="col-12 col-md mb-3 p-0" *ngFor="let link of navLinks, last as isLast">
+        <h6 class="border-white-75" [ngClass]="{ 'border-right': !isLast }">
+          <a class="text-white" [routerLink]="link.routerLink">{{ link.label }}</a>
+        </h6>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-center">
+          <div *ngFor="let link of links">
+            <a *ngIf="link.href" class="px-3 text-white" [href]="link.href">
+              <i [class]="'zmdi ' + link.iconLabel + ' zmdi-hc-lg'"></i>
+            </a>
+            <a *ngIf="link.routerLink" class="px-3 text-white" [routerLink]="link.routerLink">
+              <i [class]="'zmdi ' + link.iconLabel + ' zmdi-hc-lg'"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <span class="py-2 text-center text-white-75">
+      © 2019 Copyright:
+      <a routerLink="home" class="text-white"> Baroudeurs Pur Beurre</a>
+    </span>
   </div>
 </footer>

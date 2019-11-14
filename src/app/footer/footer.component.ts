@@ -7,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  links = {
-    github: 'https://github.com/CedricMT',
-    linkedin: 'https://www.linkedin.com/in/c%C3%A9dric-moubri-tournes-b53819112/'
-  }
+  links = [
+    { iconLabel: 'zmdi-whatsapp', routerLink: 'contact' },
+    { iconLabel: 'zmdi-email', routerLink: 'contact' },
+    { iconLabel: 'zmdi-linkedin', href: 'https://www.linkedin.com/in/c%C3%A9dric-moubri-tournes-b53819112/' },
+    { iconLabel: 'zmdi-github', href: 'https://github.com/CedricMT' }
+  ];
+
+  navLinks = [
+    { label: 'Accueil', routerLink: 'home' },
+    { label: 'Nos Articles', routerLink: 'flow' },
+    { label: 'Le Périple', routerLink: 'journey' },
+    { label: 'Où en Sommes Nous ?', routerLink: 'timeline' },
+    { label: 'Contact', routerLink: 'contact' }
+  ];
+
   constructor() { }
 
   ngOnInit() {
