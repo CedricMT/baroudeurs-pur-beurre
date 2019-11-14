@@ -4,8 +4,8 @@ $navbar-height: 66px;
 $header-height: 144px;
 
 header.title {
-//   margin-left: -15px;
-//   margin-right: -15px;
+  //   margin-left: -15px;
+  //   margin-right: -15px;
   position: relative;
 }
 
@@ -30,15 +30,20 @@ section.content {
   flex-direction: column;
   justify-content: center;
 
-  .border-separated {
-    border-radius: 12.5%;
+  .tile-divider {
+    width: 75%;
+    height: 1px;
     border-bottom: theme-color("secondary") solid 1px;
   }
   @include media-breakpoint-up(md) {
     height: 100%;
-    .border-separated {
+    .tile-divider {
       border: none;
     }
+  }
+
+  .icon-container {
+    width: 64px;
   }
 }
 
