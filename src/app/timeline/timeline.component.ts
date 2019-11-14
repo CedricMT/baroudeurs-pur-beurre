@@ -14,7 +14,6 @@ import { ModalCountryMapComponent } from './modal-country-map/modal-country-map.
 })
 export class TimelineComponent implements OnInit {
 
-  private locationsSubscription: Subscription;
   public visitedCountries: Country[] = [];
 
   public isFutureLocationsCollapsed = true;
@@ -62,10 +61,5 @@ export class TimelineComponent implements OnInit {
     const modalRef = this.modalService.open(ModalCountryMapComponent, options);
     let instance = modalRef.componentInstance;
     instance.country = country;
-  }
-
-  // Unsubscribe to subscriptions
-  ngOnDestroy() {
-    this.locationsSubscription.unsubscribe();
   }
 }
