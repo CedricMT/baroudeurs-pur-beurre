@@ -1,38 +1,49 @@
 <app-header title="Où en Sommes Nous ?"></app-header>
 
-<div class="container d-flex flex-column align-items-center">
-  <ul class="timeline">
-    <li *ngFor="let country of visitedCountries; index as i" [ngClass]="{'timeline-inverted': i % 2 === 0 }">
-      <div class="timeline-badge">
-        <i class="text-info zmdi zmdi-dot-circle"></i>
-      </div>
+<div [ngSwitch]="visitedCountries.length">
+  <div *ngSwitchCase="0" class="box-container">
+    <div id="chartdiv" class="box-content d-flex align-items-center justify-content-center">
+      <span>Chargement des pays visités</span>
+    </div>
+  </div>
 
-      <div class="card timeline-panel">
-        <div class="card-body">
-          <div class="card-title">
-            <h4 class="timeline-title d-flex align-items-center">
-              <!-- https://github.com/hjnilsson/country-flags -->
-              <img class="mr-2" [src]="flagRootPath + country.countryCode.toLowerCase() + '.svg'">{{ country.name }}
-            </h4>
-
-            <p class="mb-0">
-              <small class="text-muted">
-                <i class="zmdi zmdi-calendar-alt mr-2"></i>
-                <span>{{ country.date }}</span>
-
-                <i class="zmdi zmdi-chevron-right mx-2"></i>
-                <span>{{ country.duration }}</span>
-              </small>
-            </p>
+  <div *ngSwitchDefault class="row">
+    <div class="container d-flex flex-column align-items-center">
+      <ul class="timeline">
+        <li *ngFor="let country of visitedCountries; index as i" [ngClass]="{'timeline-inverted': i % 2 === 0 }">
+          <div class="timeline-badge">
+            <i class="text-info zmdi zmdi-dot-circle"></i>
           </div>
 
-          <div class="clickable" (click)="open(country)">
-            <app-country-map [country]="country"></app-country-map>
-          </div>
-        </div>
-      </div>
-    </li>
+          <div class="card timeline-panel">
+            <div class="card-body">
+              <div class="card-title">
+                <h4 class="timeline-title d-flex align-items-center">
+                  <!-- https://github.com/hjnilsson/country-flags -->
+                  <img class="mr-2" [src]="flagRootPath + country.countryCode.toLowerCase() + '.svg'">{{ country.name
+                  }}
+                </h4>
 
-    <li class="clearfix no-float"></li>
-  </ul>
+                <p class="mb-0">
+                  <small class="text-muted">
+                    <i class="zmdi zmdi-calendar-alt mr-2"></i>
+                    <span>{{ country.date }}</span>
+
+                    <i class="zmdi zmdi-chevron-right mx-2"></i>
+                    <span>{{ country.duration }}</span>
+                  </small>
+                </p>
+              </div>
+
+              <div class="clickable" (click)="open(country)">
+                <app-country-map [country]="country"></app-country-map>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="clearfix no-float"></li>
+      </ul>
+    </div>
+  </div>
 </div>
