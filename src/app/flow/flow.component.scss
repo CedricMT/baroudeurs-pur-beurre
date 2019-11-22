@@ -1,5 +1,30 @@
+@import "theming";
+
+$navbar-height: 66px;
+$header-height: 144px;
+$header-height-md: 96px;
+
 header.title {
-    margin-left: -15px;
-    margin-right: -15px;
-    position: relative;
+  margin-left: -15px;
+  margin-right: -15px;
+  position: relative;
+}
+
+.box-container {
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-top: calc(100vh - #{$navbar-height + $header-height});
+
+  @include media-breakpoint-down(sm) {
+    padding-top: calc(100vh - #{$navbar-height + $header-height-md});
+  }
+}
+
+.box-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

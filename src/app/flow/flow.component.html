@@ -17,12 +17,22 @@
           <h1 class="mb-4 mr-auto mr-md-none">{{ title }}</h1>
         </div>
       </header>
-      <div class="row">
-        <section class="col-xl-11 mx-auto py-5 px-2 px-md-4 px-lg-5 d-flex flex-column">
-          <app-article *ngFor="let article of articles; index as i" [id]="'article-' + article.id" [articleId]="article.id" [title]="article.title"
-            [number]="articles.length - i" [text]="article.text" [imgNb]="article.imgNb" [imgDirLabel]="article.imgDirLabel" [comments]="article.comments">
-          </app-article>
-        </section>
+
+      <div [ngSwitch]="articles.length">
+        <div *ngSwitchCase="0" class="box-container">
+          <div id="chartdiv" class="box-content d-flex align-items-center justify-content-center">
+            <span>Chargement des articles</span>
+          </div>
+        </div>
+
+        <div *ngSwitchDefault class="row">
+          <section class="col-xl-11 mx-auto py-5 px-2 px-md-4 px-lg-5 d-flex flex-column">
+            <app-article *ngFor="let article of articles; index as i" [id]="'article-' + article.id" [articleId]="article.id"
+              [title]="article.title" [number]="articles.length - i" [text]="article.text" [imgNb]="article.imgNb"
+              [imgDirLabel]="article.imgDirLabel" [comments]="article.comments">
+            </app-article>
+          </section>
+        </div>
       </div>
     </div>
   </div>
