@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { DbService } from '@services/db.service';
 import { DataService } from '@services/data.service';
+import { ToastService } from '@services/toast.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ModalCarouselComponent } from './modal-carousel/modal-carousel.component';
@@ -34,6 +35,7 @@ export class ArticleComponent implements OnInit {
     private fb: FormBuilder,
     private data: DataService,
     private db: DbService,
+    private toastService: ToastService,
     private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -61,9 +63,11 @@ export class ArticleComponent implements OnInit {
     const comment = Object.assign({ articleId: this.articleId }, this.commentForm.value);
     this.db.addComment(comment).subscribe(
       (results: any) => {
+        this.showSuccess('Merci, le commentaire à bien été ajouté !')
         this.data.updateComments();
       },
       (err) => {
+        this.showError('Oups, une erreur s\'est produite lors de l\'ajout du commentaire... ')
         console.error('Error while adding comments', err);
       }
     );
@@ -80,5 +84,23 @@ export class ArticleComponent implements OnInit {
 
     // Toggle overview mode
     this.isOverviewMode = !this.isOverviewMode
+  }
+
+  showSuccess(message: string) {
+    this.toastService.show(message, {
+      classname: 'bg-success text-light',
+      delay: 4000,
+      autohide: true,
+      headertext: 'Ajout de commentaire :'
+    });
+  }
+
+  showError(message: string) {
+    this.toastService.show(message, {
+      classname: 'bg-danger text-light',
+      delay: 5000,
+      autohide: true,
+      headertext: 'Ajout de commentaire :'
+    });
   }
 }

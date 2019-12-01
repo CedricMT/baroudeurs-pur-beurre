@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FlowComponent } from './flow/flow.component';
@@ -22,6 +23,7 @@ import { ModalCountryMapComponent } from './timeline/modal-country-map/modal-cou
 import { ContactComponent } from './contact/contact.component';
 import { HeaderComponent } from './header/header.component';
 import { ModalCarouselComponent } from './article/modal-carousel/modal-carousel.component';
+import { ToastContainerComponent } from './common/toast-container/toast-container.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { ModalCarouselComponent } from './article/modal-carousel/modal-carousel.
     ModalCountryMapComponent,
     ContactComponent,
     HeaderComponent,
-    ModalCarouselComponent
+    ModalCarouselComponent,
+    ToastContainerComponent
   ],
   imports: [
     BrowserModule,
