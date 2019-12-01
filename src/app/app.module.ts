@@ -48,7 +48,7 @@ import { ModalCarouselComponent } from './article/modal-carousel/modal-carousel.
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule.forRoot()
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],
