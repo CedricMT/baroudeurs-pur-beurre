@@ -24,6 +24,7 @@
     "@angular/router": "~8.2.14",
     "@ng-bootstrap/ng-bootstrap": "^5.1.4",
     "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
+    "@types/jquery": "^3.3.31",
     "bootstrap": "^4.4.1",
     "core-js": "^3.4.5",
     "jquery": "^3.4.1",
