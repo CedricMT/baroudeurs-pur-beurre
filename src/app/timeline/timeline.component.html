@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <div *ngSwitchDefault class="row">
+  <div *ngSwitchDefault class="row px-3">
     <div class="container d-flex flex-column align-items-center">
       <ul class="timeline">
         <li *ngFor="let country of visitedCountries; index as i" [ngClass]="{'timeline-inverted': i % 2 === 0 }">
