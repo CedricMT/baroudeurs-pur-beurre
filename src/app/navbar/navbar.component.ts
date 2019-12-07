@@ -13,7 +13,7 @@ export class NavbarComponent implements AfterViewInit {
     { label: 'Accueil', routerLink: 'home' },
     { label: 'Nos Articles', routerLink: 'flow' },
     { label: 'Le Périple', routerLink: 'journey' },
-    { label: 'Où en Sommes Nous ?', routerLink: 'timeline' },
+    { label: 'Pays visités', routerLink: 'timeline' },
     { label: 'Contact', routerLink: 'contact' }
   ];
 
