@@ -1,10 +1,9 @@
-<nav class="toc py-3">
-  <div class="toc-item" [class.active]="isActive(['/articles'], false)">
-    <a class="toc-link">Nos Articles</a>
-    <ul class="nav flex-column ml-3">
-      <li *ngFor="let article of articles; index as i" [class.active]="isActive(['/home', 'article-' + article.id], false)">
-        <a class="toc-link" [href]="'/flow#article-' + article.id">{{ article.label }}</a>
-      </li>
-    </ul>
-  </div>
+<nav class="py-3" id="scrollspy">
+  <p id="header">Nos Articles</p>
+  <ul class="nav nav-pills flex-column ml-3">
+    <li class="nav-item" *ngFor="let article of articles; index as i; let first = first">
+      <a class="nav-link" [attr.data-target]="'#article-' + article.id" [href]="'/flow#article-' + article.id"
+        [ngClass]="{ active: first }">{{ article.label }}</a>
+    </li>
+  </ul>
 </nav>
