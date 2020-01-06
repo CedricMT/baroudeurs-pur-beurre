@@ -1,7 +1,4 @@
 <?php
-/**
- * Returns the list of cars.
- */
 require 'connect.php';
     
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -18,7 +15,7 @@ if (!array_key_exists('articleId', $requestArgs)
   http_response_code(400, "Invalid parameters");
 } 
 
-$sql = "INSERT INTO `comments`(`article_id`, `text`, `author`) VALUES ("
+$sql = "INSERT INTO `tcm_comments`(`tcm_article_id`, `tcm_text`, `tcm_author`) VALUES ("
  . "'" . $requestArgs['articleId'] . "', "
  . "'" . addslashes($requestArgs['text']) . "', "
  . "'" . addslashes($requestArgs['author']) . "');";

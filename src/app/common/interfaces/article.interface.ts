@@ -5,5 +5,10 @@ export interface Article {
     title: string,
     text: string,
     images: string,
+    imgNb: string,
+    imgDirLabel: string,
     comments: Comment[];
+    countryId: number,
+    countryName: string,
+    date: string
 }
