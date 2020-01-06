@@ -37,9 +37,28 @@ export class FlowComponent implements OnInit {
     this.articlesSubscription = this.data.getArticlesAsObservable().subscribe((articles: Article[]) => {
       // Update articles and title list
       this.articles = articles;
-      this.articlesLinks = this.articles.map(article => {
-        return { label: article.title, id: article.id };
+
+      // Build articleLinks
+      const articlesLinks = [];
+      this.articles.forEach(article => {
+        const articleLinks = articlesLinks.find(articleLinks => articleLinks.id === article.countryId);
+        const link = {
+          title: article.title,
+          id: article.id
+        };
+
+        if (!articleLinks) {
+          articlesLinks.push({
+            id: article.countryId,
+            name: article.countryName,
+            links: [link]
+          });
+        } else {
+          articleLinks.links.push(link);
+        }
       });
+
+      this.articlesLinks = articlesLinks;
 
       // Update comments
       this.data.updateComments();

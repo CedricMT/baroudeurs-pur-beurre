@@ -1,25 +1,51 @@
 @import "theming";
 
+$x-padding: 1rem;
+$y-padding: 0.25rem;
+$indent-link: 1.25rem;
+
 nav {
   margin-left: -15px;
   margin-right: -15px;
 
   #header,
   .nav-link {
-    padding: 0.25rem 1.5rem;
+    padding: $y-padding $x-padding;
     color: rgba(0, 0, 0, 0.65);
   }
 
-  .nav > li > a {
-    font-size: 90%;
+  .nav-link {
+    display: block;
+    white-space: normal;
+    border-radius: 0px;
 
     &:hover {
+      cursor: pointer;
+      background-color: theme-color("light");
       color: theme-color("primary");
     }
 
     &.active {
-      color: theme-color("primary") !important;
-      background-color: transparent !important;
+      color: theme-color("primary");
+      background-color: transparent;
+
+      &:hover {
+        background-color: theme-color("light");
+      }
     }
+  }
+
+  .article-link {
+    padding-left: calc(#{$x-padding} + #{$indent-link});
+    font-size: 90%;
+  }
+
+  ul {
+    padding: 0px;
+  }
+
+  li {
+    list-style: none;
+    padding-inline: 0px;
   }
 }

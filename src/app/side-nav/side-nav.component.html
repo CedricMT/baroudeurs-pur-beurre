@@ -1,9 +1,18 @@
-<nav class="py-3" id="scrollspy">
-  <p id="header">Nos Articles</p>
-  <ul class="nav nav-pills flex-column ml-3">
-    <li class="nav-item" *ngFor="let article of articles; index as i; let first = first">
-      <a class="nav-link" [attr.data-target]="'#article-' + article.id" [href]="'/flow#article-' + article.id"
-        [ngClass]="{ active: first }">{{ article.label }}</a>
+<nav class="py-4" id="scrollspy">
+  <h5 id="header" class="mb-3">Nos Articles</h5>
+
+  <ul class="nav nav-pills nav-stacked flex-column">
+    <li class="nav-item dropdown" *ngFor="let country of articles; index as i; let first = first">
+
+      <a class="nav-link dropdown-toggle" data-toggle="collapse" [attr.data-target]="'#country-' + country.id"
+        [ngClass]="{ active: first }">{{ country.name }}</a>
+
+      <ul [id]="'country-' + country.id" class="collapse">
+        <li *ngFor="let link of country.links">
+          <a class="nav-link article-link dropdown-item" [attr.data-target]="'#article-' + link.id"
+            [href]="'/flow#article-' + link.id">{{ link.title }}</a>
+        </li>
+      </ul>
     </li>
   </ul>
 </nav>
