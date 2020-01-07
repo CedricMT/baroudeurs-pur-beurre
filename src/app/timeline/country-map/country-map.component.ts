@@ -102,10 +102,10 @@ export class CountryMapComponent implements OnInit {
       // Create a circle image in image series template so it gets replicated to all new images
       var imageSeriesTemplate = imageSeries.mapImages.template;
       var circle = imageSeriesTemplate.createChild(am4core.Circle);
-      circle.radius = 4;
+      circle.radius = 3;
       circle.fill = am4core.color(this.getColorFromTheme('warning'));
       circle.stroke = am4core.color("#FFFFFF");
-      circle.strokeWidth = 2;
+      circle.strokeWidth = 1;
       circle.nonScaling = true;
       circle.tooltipText = "{title}";
 

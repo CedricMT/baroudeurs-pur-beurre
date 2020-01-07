@@ -34,19 +34,19 @@ export class FlyingMapComponent implements OnInit {
       this.data.requestCountries().toPromise(),
       this.data.requestLocations().toPromise()
     ])
-    .then((results => {
-      const countries = this.organizeLocationsByCountry(results[0], results[1]);
-      this.visitedCountries = countries.filter((country: Country) => country.date !== null);
-      this.plannedCountries = countries.filter((country: Country) => country.date === null);
-    }))
-    .catch((err) => {
-      console.error('Error while retrieving data from database.', err);
-    })
-    .then(() => {
-      this.initMap();
-    }).catch(err => {
-      console.error('Error while initiating map', err);
-    });
+      .then((results => {
+        const countries = this.organizeLocationsByCountry(results[0], results[1]);
+        this.visitedCountries = countries.filter((country: Country) => country.date !== null);
+        this.plannedCountries = countries.filter((country: Country) => country.date === null);
+      }))
+      .catch((err) => {
+        console.error('Error while retrieving data from database.', err);
+      })
+      .then(() => {
+        this.initMap();
+      }).catch(err => {
+        console.error('Error while initiating map', err);
+      });
   }
 
   private organizeLocationsByCountry(countries: Country[], locations: Location[]): Country[] {
@@ -148,16 +148,17 @@ export class FlyingMapComponent implements OnInit {
       this.cities.mapImages.template.nonScaling = true;
 
       const city = this.cities.mapImages.template.createChild(am4core.Circle);
-      city.radius = 6;
-      city.fill = map.colors.getIndex(0).brighten(-0.2);
-      city.strokeWidth = 2;
+      city.radius = 3;
+      city.fill = am4core.color(this.getColorFromTheme('warning'));
+      // city.fill = map.colors.getIndex(0).brighten(-0.2);
+      city.strokeWidth = 1;
       city.stroke = am4core.color('#fff');
 
       // Extract flightPoints
       const flightLocations = [];
       this.visitedCountries.forEach((visitedCountry: Country) => {
         visitedCountry.locations.forEach((location: Location) => {
-          if(location.flightPoint === '1') {
+          if (location.flightPoint === '1') {
             flightLocations.push(location);
           }
         });
@@ -174,9 +175,10 @@ export class FlyingMapComponent implements OnInit {
       const lineSeries = map.series.push(new am4maps.MapArcSeries());
       lineSeries.mapLines.template.line.strokeWidth = 2;
       lineSeries.mapLines.template.line.strokeOpacity = 0.5;
-      lineSeries.mapLines.template.line.stroke = city.fill;
+      lineSeries.mapLines.template.line.stroke = am4core.color(this.getColorFromTheme('dark'));
+      // lineSeries.mapLines.template.line.stroke = city.fill;
       lineSeries.mapLines.template.line.nonScalingStroke = true;
-      lineSeries.mapLines.template.line.strokeDasharray = '1,1';
+      lineSeries.mapLines.template.line.strokeDasharray = '1,2';
       lineSeries.zIndex = 10;
 
       const shadowLineSeries = map.series.push(new am4maps.MapLineSeries());
@@ -214,7 +216,8 @@ export class FlyingMapComponent implements OnInit {
       planeImage.horizontalCenter = 'middle';
       planeImage.verticalCenter = 'middle';
       planeImage.path = 'm2,106h28l24,30h72l-44,-133h35l80,132h98c21,0 21,34 0,34l-98,0 -80,134h-35l43,-133h-71l-24,30h-28l15,-47';
-      planeImage.fill = map.colors.getIndex(2).brighten(-0.2);
+      // planeImage.fill = map.colors.getIndex(2).brighten(-0.2);
+      planeImage.fill = am4core.color(this.getColorFromTheme('dark'));
       planeImage.strokeOpacity = 0;
 
       const shadowPlane = shadowLineSeries.mapLines.getIndex(0).lineObjects.create();
