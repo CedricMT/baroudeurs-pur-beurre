@@ -49,3 +49,10 @@ nav {
     padding-inline: 0px;
   }
 }
+
+@include media-breakpoint-up(lg) {
+  nav {
+    height: 100vh;
+    overflow-y: auto;
+  }
+}
