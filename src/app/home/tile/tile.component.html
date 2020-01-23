@@ -1,7 +1,12 @@
 <div class="px-0 py-4 p-md-3 p-lg-4 m-2">
-  <div class="text-center">
-    <img class="rounded-circle mb-4" [src]="iconUrl">
+  <div [ngSwitch]="button" class="text-center">
+    <img *ngSwitchCase="undefined" class="rounded-circle mb-4" [src]="iconUrl">
+
+    <a *ngSwitchDefault [routerLink]="button.routerLink">
+      <img class="rounded-circle mb-4" [src]="iconUrl">
+    </a>
   </div>
+
   <h3>{{ title }}</h3>
 
   <ng-content></ng-content>
