@@ -1,7 +1,14 @@
 <nav class="py-3 py-lg-4 border-bottom" id="scrollspy">
-  <h5 id="header" class="mb-3">Liste Articles</h5>
+  <div id="header">
+    <span class="d-none d-lg-block"> Liste Articles </span>
 
-  <ul class="nav nav-pills nav-stacked flex-column">
+    <a class="dropdown-toggle d-block d-lg-none" data-toggle="collapse" data-target="#linkList" aria-controls="linkList"
+      aria-expanded="true">
+      Liste Articles
+    </a>
+  </div>
+
+  <ul id="linkList" class="nav nav-pills nav-stacked collapse show flex-column mt-3">
     <li class="nav-item dropdown" *ngFor="let country of articles; index as i; let first = first">
 
       <a class="nav-link dropdown-toggle" data-toggle="collapse" [attr.data-target]="'#country-' + country.id"
