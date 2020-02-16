@@ -10,4 +10,8 @@ export class SideNavComponent {
 
   constructor() { }
 
+  public scrollToTop(event) {
+    event.stopPropagation();
+    $('html, body').animate({ scrollTop: '0px' }, 300);
+  }
 }
