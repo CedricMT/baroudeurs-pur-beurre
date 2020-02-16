@@ -65,9 +65,14 @@ nav {
   }
 }
 
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(md) {
   nav {
     height: 100vh;
     overflow-y: auto;
+  }
+  
+  // Disable collapse for linkList above md breakpoint
+  #linkList.collapse:not(.show) {
+    display: block !important;
   }
 }
