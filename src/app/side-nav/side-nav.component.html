@@ -1,12 +1,12 @@
 <nav class="py-3 py-lg-4 border-bottom" id="scrollspy">
   <div id="header">
-    <span class="d-none d-lg-block">Liste Articles</span>
+    <span id="header-lg" class="d-none d-lg-block">Liste Articles</span>
 
-    <a class="d-flex align-items-center d-lg-none" data-toggle="collapse" data-target="#linkList"
+    <a id="header-sm" class="d-flex align-items-center d-lg-none" data-toggle="collapse" data-target="#linkList"
       aria-controls="linkList" aria-expanded="true">
       <span class="dropdown-toggle">Liste Articles</span>
       <button id="scroll-top-icon" class="btn btn-outline-secondary button-icon-secondary ml-auto"
-        (click)="scrollToTop($event)">
+        (click)="$event.stopPropagation()">
         <i class="zmdi zmdi-long-arrow-up"></i>
       </button>
     </a>
