@@ -69,7 +69,7 @@ nav {
   }
 }
 
-@include media-breakpoint-up(md) {
+@include media-breakpoint-up(lg) {
   nav {
     height: 100vh;
     overflow-y: auto;
