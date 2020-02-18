@@ -1,13 +1,12 @@
-<button type="button" class="btn btn-outline-dark close-btn fixed-top ml-auto" (click)="activeModal.close('Close click')">
+<button type="button" class="btn btn-outline-dark close-btn fixed-top ml-auto"
+  (click)="activeModal.close('Close click')">
   <span aria-hidden="true">&times;</span>
 </button>
 
 <ngb-carousel *ngIf="imagesPath.length > 0">
   <ng-template ngbSlide *ngFor="let imagePath of imagesPath">
-    <div class="image-container">
-      <div class="image-sub-container d-flex justify-content-center">
-        <img [src]="'assets/pictures/' + imagePath" alt="Random slide">
-      </div>
+    <div class="d-flex align-items-center justify-content-center min-vh-100">
+      <img class="max-vh-100" [src]="'assets/pictures/' + imagePath" alt="imagePath">
     </div>
   </ng-template>
 </ngb-carousel>

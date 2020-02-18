@@ -11,12 +11,12 @@
 $theme-colors: (
   "primary": #17a2b8,
   "secondary": #6c757d,
-    // "success": #28a745,
-    // "info": #17a2b8,
-    // "warning": #ffc107,
-    // "danger": #dc3545,
-    "light": #f8f9fa,
-    // "dark": #343a40,
+  // "success": #28a745,
+  // "info": #17a2b8,
+  // "warning": #ffc107,
+  // "danger": #dc3545,
+  "light": #f8f9fa,
+  // "dark": #343a40,
 );
 
 // Generate alert modifier classes
@@ -31,4 +31,25 @@ $theme-colors: (
   &:hover {
     color: white !important;
   }
+}
+
+// Bootstrap modal component
+.modal-backdrop.show {
+  opacity: 0.85 !important;
+}
+
+.modal-dialog {
+  // Full screen modal
+  max-height: 100vh !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+.carousel-inner {
+  // Avoid overflow scroll bar
+  max-height: 99.99vh !important;
+}
+
+.modal-content {
+  background-color: transparent !important;
 }
