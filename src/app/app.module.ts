@@ -24,6 +24,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HeaderComponent } from './header/header.component';
 import { ModalCarouselComponent } from './article/modal-carousel/modal-carousel.component';
 import { ToastContainerComponent } from './common/toast-container/toast-container.component';
+import { LoadingMessageComponent } from './common/loading-message/loading-message.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ToastContainerComponent } from './common/toast-container/toast-containe
     ContactComponent,
     HeaderComponent,
     ModalCarouselComponent,
-    ToastContainerComponent
+    ToastContainerComponent,
+    LoadingMessageComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@
 <div [ngSwitch]="visitedCountries.length">
   <div *ngSwitchCase="0" class="box-container">
     <div id="chartdiv" class="box-content d-flex align-items-center justify-content-center">
-      <span>Chargement des pays visités</span>
+      <loading-message [text]="'Chargement des pays visités'"></loading-message>
     </div>
   </div>
 
@@ -20,8 +20,8 @@
               <div class="card-title">
                 <h4 class="timeline-title d-flex align-items-center">
                   <!-- https://github.com/hjnilsson/country-flags -->
-                  <img class="mr-2" [src]="flagRootPath + country.countryCode.toLowerCase() + '.svg'">{{ country.name
-                  }}
+                  <img class="mr-2" [src]="flagRootPath + country.countryCode.toLowerCase() + '.svg'">
+                  {{ country.name }}
                 </h4>
 
                 <p class="mb-0">

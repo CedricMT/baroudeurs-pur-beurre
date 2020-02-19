@@ -13,7 +13,7 @@
       <div [ngSwitch]="articles.length">
         <div *ngSwitchCase="0" class="box-container">
           <div id="chartdiv" class="box-content d-flex align-items-center justify-content-center">
-            <span>Chargement des articles</span>
+            <loading-message [text]="'Chargement des articles'"></loading-message>
           </div>
         </div>
 
