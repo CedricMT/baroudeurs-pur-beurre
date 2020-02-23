@@ -4,9 +4,10 @@
 </button>
 
 <ngb-carousel *ngIf="imagesPath.length > 0">
-  <ng-template ngbSlide *ngFor="let imagePath of imagesPath">
+  <ng-template ngbSlide *ngFor="let imagePath of imagesPath; index as i">
     <div class="d-flex align-items-center justify-content-center min-vh-100">
-      <img class="max-vh-100" [src]="'assets/pictures/' + imagePath" alt="imagePath">
+      <loading-message [color]="'light'" class="spinner"></loading-message>
+      <img class="max-vh-100" [src]="'assets/pictures/' + imagePath" [alt]="title + ' ' + i" class="picture">
     </div>
   </ng-template>
 </ngb-carousel>

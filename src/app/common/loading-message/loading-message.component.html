@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center">
-  <div class="spinner-border mr-3" role="status">
+  <div [class]="'spinner-border ' + textColor" role="status">
     <span class="sr-only">Loading...</span>
   </div>
-  <span>{{ text }}</span>
+  <span *ngIf="text" class="ml-3">{{ text }}</span>
 </div>

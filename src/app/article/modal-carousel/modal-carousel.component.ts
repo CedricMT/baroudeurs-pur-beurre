@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -6,13 +6,17 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './modal-carousel.component.html',
   styleUrls: ['./modal-carousel.component.scss']
 })
-export class ModalCarouselComponent implements OnInit {
+export class ModalCarouselComponent {
 
   @Input() title: string;
   @Input() imagesPath: string[];
 
   constructor(public activeModal: NgbActiveModal) { }
 
-  ngOnInit() { }
-
+  // Hide spinner when picture is loaded
+  ngAfterViewInit() {
+    $(".picture").on('load', function () {
+      $(this).siblings('.spinner').hide();
+    })
+  }
 }

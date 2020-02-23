@@ -5,10 +5,11 @@
 <div class="card mb-5">
   <div class="card-body">
     <ngb-carousel class="mb-3" *ngIf="imagesPath.length > 0">
-      <ng-template ngbSlide *ngFor="let imagePath of imagesPath">
+      <ng-template ngbSlide *ngFor="let imagePath of imagesPath; index as i">
         <div class="image-container">
-          <div class="image-sub-container d-flex justify-content-center">
-            <img [src]="'assets/pictures/' + imagePath" alt="Random slide">
+          <div class="image-sub-container d-flex justify-content-center align-items-center">
+            <loading-message [color]="'light'" class="spinner"></loading-message>
+            <img [src]="'assets/pictures/' + imagePath" [alt]="title + ' ' + i" class="picture">
           </div>
         </div>
       </ng-template>
