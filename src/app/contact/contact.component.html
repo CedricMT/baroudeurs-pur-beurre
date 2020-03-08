@@ -6,8 +6,8 @@
       <app-tile [title]="tile.title" [iconUrl]="tile.iconUrl">
         <div class="mt-5 px-sm-5 px-md-3 px-lg-5">
           <div class="d-flex align-items-center mb-2" *ngFor="let line of tile.details">
-            <div class="icon-container">
-              <i [class]="'zmdi ' + line.icon + ' zmdi-hc-lg'"></i>
+            <div class="icon-container d-flex justify-content-center">
+              <icon [label]="line.icon"></icon>
             </div>
             <div [ngSwitch]="line.link">
               <p *ngSwitchCase="undefined" class="mb-0">{{ line.text }}</p>

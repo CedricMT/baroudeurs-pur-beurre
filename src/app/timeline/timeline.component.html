@@ -1,18 +1,19 @@
 <app-header title="Pays visités"></app-header>
 
-<div [ngSwitch]="visitedCountries.length">
+<div [ngSwitch]="visitedCountries.length" class="container-fluid">
   <div *ngSwitchCase="0" class="box-container">
     <div id="chartdiv" class="box-content d-flex align-items-center justify-content-center">
       <loading-message [text]="'Chargement des pays visités'"></loading-message>
     </div>
   </div>
 
-  <div *ngSwitchDefault class="row px-3">
+  <div *ngSwitchDefault class="row">
     <div class="container d-flex flex-column align-items-center">
       <ul class="timeline">
-        <li *ngFor="let country of visitedCountries; index as i" [ngClass]="{'timeline-inverted': i % 2 === 0 }">
-          <div class="timeline-badge">
-            <i class="text-primary zmdi zmdi-dot-circle"></i>
+        <li *ngFor="let country of visitedCountries; index as i; first as isFirst"
+          [ngClass]="{'timeline-inverted': i % 2 === 0, 'mt-4': isFirst }">
+          <div class="timeline-badge text-primary">
+            <icon label="circle-dot"></icon>
           </div>
 
           <div class="card timeline-panel">
@@ -24,14 +25,12 @@
                   {{ country.name }}
                 </h4>
 
-                <p class="mb-0">
-                  <small class="text-muted">
-                    <i class="zmdi zmdi-calendar-alt mr-2"></i>
-                    <span>{{ country.date }}</span>
+                <p class="duration-title text-muted">
+                  <icon label="calendar-light" height="1em" widh="1em" class="mr-1"></icon>
+                  <span>{{ country.date }}</span>
 
-                    <i class="zmdi zmdi-chevron-right mx-2"></i>
-                    <span>{{ country.duration }}</span>
-                  </small>
+                  <icon label="chevron-right-light" height="1em" widh="1em" class="mx-1"></icon>
+                  <span>{{ country.duration }}</span>
                 </p>
               </div>
 
@@ -42,7 +41,7 @@
           </div>
         </li>
 
-        <li class="clearfix no-float"></li>
+        <li class="clearfix no-float m-0"></li>
       </ul>
     </div>
   </div>

@@ -25,6 +25,8 @@ import { HeaderComponent } from './header/header.component';
 import { ModalCarouselComponent } from './article/modal-carousel/modal-carousel.component';
 import { ToastContainerComponent } from './common/toast-container/toast-container.component';
 import { LoadingMessageComponent } from './common/loading-message/loading-message.component';
+import { IconsDefComponent } from './common/icons-def/icons-def.component';
+import { IconComponent } from './common/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { LoadingMessageComponent } from './common/loading-message/loading-messag
     HeaderComponent,
     ModalCarouselComponent,
     ToastContainerComponent,
-    LoadingMessageComponent
+    LoadingMessageComponent,
+    IconsDefComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,

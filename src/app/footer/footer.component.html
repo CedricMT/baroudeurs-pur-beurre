@@ -13,11 +13,11 @@
     <div class="mx-auto mb-2">
       <div class="d-flex justify-content-center">
         <div *ngFor="let link of links">
-          <a *ngIf="link.href" class="px-3 text-white" [href]="link.href">
-            <i [class]="'zmdi ' + link.iconLabel + ' zmdi-hc-lg'"></i>
+          <a *ngIf="link.href" class="d-block px-3 text-white" [href]="link.href">
+            <icon [label]="link.iconLabel"></icon>
           </a>
-          <a *ngIf="link.routerLink" class="px-3 text-white" [routerLink]="link.routerLink">
-            <i [class]="'zmdi ' + link.iconLabel + ' zmdi-hc-lg'"></i>
+          <a *ngIf="link.routerLink" class="d-block px-3 text-white" [routerLink]="link.routerLink">
+            <icon [label]="link.iconLabel"></icon>
           </a>
         </div>
       </div>

@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   links = [
-    { iconLabel: 'zmdi-whatsapp', routerLink: 'contact' },
-    { iconLabel: 'zmdi-email', routerLink: 'contact' },
-    { iconLabel: 'zmdi-linkedin', href: 'https://www.linkedin.com/in/c%C3%A9dric-moubri-tournes-b53819112/' },
-    { iconLabel: 'zmdi-github', href: 'https://github.com/CedricMT' }
+    { iconLabel: 'whatsapp', routerLink: 'contact' },
+    { iconLabel: 'mail', routerLink: 'contact' },
+    { iconLabel: 'linkedin', href: 'https://www.linkedin.com/in/c%C3%A9dric-moubri-tournes-b53819112/' },
+    { iconLabel: 'github', href: 'https://github.com/CedricMT' }
   ];
 
   navLinks = [

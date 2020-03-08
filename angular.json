@@ -34,8 +34,7 @@
               ]
             },
             "styles": [
-              "src/scss/styles.scss",
-              "src/assets/fonts/material-design-iconic-font/dist/css/material-design-iconic-font.min.css"
+              "src/scss/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -94,8 +93,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss",
-              "src/assets/fonts/material-design-iconic-font/dist/css/material-design-iconic-font.min.css"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [
