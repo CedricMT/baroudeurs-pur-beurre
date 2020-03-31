@@ -31,6 +31,11 @@ export class NavbarComponent implements AfterViewInit {
       this.isExpanded = false;
       this.cdr.detectChanges();
     });
+
+    // Collapse navbar when click on icon
+    $('#navbar-brand').click(function () {
+      ($('.collapse') as any).collapse('hide');
+    });
   }
 
   isHome() {
