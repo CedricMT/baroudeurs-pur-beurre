@@ -5,19 +5,19 @@
 <div class="card mb-5">
   <div class="card-body">
     <app-lazy-loading-container>
-      <img *ngIf [src]="'https://picsum.photos/800/300?image=' + imgNumber">
+      <div *ngIf>
+        <ngb-carousel class="mb-3" *ngIf="imagesPath.length > 0">
+          <ng-template ngbSlide *ngFor="let imagePath of imagesPath; index as i">
+            <div class="image-container">
+              <div class="image-sub-container d-flex justify-content-center align-items-center">
+                <loading-message [color]="'light'" class="spinner"></loading-message>
+                <img [src]="'assets/pictures/' + imagePath" [alt]="title + ' ' + i" class="picture" aria-hidden="true">
+              </div>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
     </app-lazy-loading-container>
-
-    <!-- <ngb-carousel class="mb-3" *ngIf="imagesPath.length > 0">
-      <ng-template ngbSlide *ngFor="let imagePath of imagesPath; index as i">
-        <div class="image-container">
-          <div class="image-sub-container d-flex justify-content-center align-items-center">
-            <loading-message [color]="'light'" class="spinner"></loading-message>
-            <img [src]="'assets/pictures/' + imagePath" [alt]="title + ' ' + i" class="picture" aria-hidden="true">
-          </div>
-        </div>
-      </ng-template>
-    </ngb-carousel> -->
 
     <button class="btn btn-outline-primary button-icon-primary mb-2 d-flex align-items-center"
       (click)="open('#' + number + ' ' + title, imagesPath)">

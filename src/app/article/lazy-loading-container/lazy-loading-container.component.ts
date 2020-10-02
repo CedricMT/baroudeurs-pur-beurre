@@ -37,7 +37,6 @@ export class LazyLoadingContainerComponent implements OnInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: any) { }
 
   ngOnInit(): void {
-    console.log(this.options);
     if (isPlatformBrowser(this.platformId)) {
       this.observer = new IntersectionObserver(this.handleIntersect.bind(this), this.options);
       this.observer.observe(this.element.nativeElement);
