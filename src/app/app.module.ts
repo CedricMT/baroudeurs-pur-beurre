@@ -27,6 +27,7 @@ import { ToastContainerComponent } from './common/toast-container/toast-containe
 import { LoadingMessageComponent } from './common/loading-message/loading-message.component';
 import { IconsDefComponent } from './common/icons-def/icons-def.component';
 import { IconComponent } from './common/icon/icon.component';
+import { LazyLoadingContainerComponent } from './article/lazy-loading-container/lazy-loading-container.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { IconComponent } from './common/icon/icon.component';
     ToastContainerComponent,
     LoadingMessageComponent,
     IconsDefComponent,
-    IconComponent
+    IconComponent,
+    LazyLoadingContainerComponent
   ],
   imports: [
     BrowserModule,

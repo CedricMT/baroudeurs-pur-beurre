@@ -15,6 +15,8 @@ import { ModalCarouselComponent } from './modal-carousel/modal-carousel.componen
 })
 export class ArticleComponent implements OnInit {
 
+  imgNumber = Math.floor(Math.random() * Math.floor(50)); 
+
   @Input() articleId: number;
   @Input() title: string;
   @Input() number: number;
