@@ -50,7 +50,7 @@ export class ArticleComponent implements OnInit {
 
   // Hide spinner when picture is loaded
   ngAfterViewInit() {
-    $(".picture").on('load', function() {
+    $(".picture").on('load', function () {
       $(this).siblings('.spinner').hide();
     })
   }
